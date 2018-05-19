@@ -1,4 +1,4 @@
-package org.h_brs.coolemicroservices.backend.entities;
+package org.h_brs.coolemicroservices.backend.dto;
 
 public class Person {
 	private String anrede;
@@ -102,6 +102,4 @@ public class Person {
 	public void setHausnummer(String hausnummer) {
 		this.hausnummer = hausnummer;
 	}
-	
-	
 }

@@ -1,6 +1,6 @@
 package org.h_brs.coolemicroservices.backend.controller;
 
-import org.h_brs.coolemicroservices.backend.entities.Person;
+import org.h_brs.coolemicroservices.backend.entities.Test;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +10,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 public class RegistrationController {
+	
+	//@Autowired
+	//private RegistrationService registrationService;
 	
 	@RequestMapping( method=RequestMethod.POST, value="/registration" )
 	public void registration( @RequestBody String jsonInString ) {
@@ -23,12 +26,17 @@ public class RegistrationController {
 		try {
 			
 			// Convert JSON string from file to Object
-			Person person = mapper.readValue( jsonInString, Person.class);
+			Test test = mapper.readValue( jsonInString, Test.class);
+			//hier durch Person ersetzen und testen
 			
-			
+			System.out.println(test.getName());
+			System.out.println(test.getAlter());
 		}
 		catch( Exception ex ) {
 			ex.printStackTrace();
 		}
+		//MEhr exeptions für besseres Fehlerhandling?
+		
+		//registrationService.registerPerson( person );
 	}
 }
