@@ -1,7 +1,10 @@
 package org.h_brs.coolemicroservices.facade;
 
+import java.io.IOException;
+
 import org.h_brs.coolemicroservices.facade.dto.PersonTO;
-import org.h_brs.coolemicroservices.facade.entities.Test;
+import org.h_brs.coolemicroservices.service.RegistrationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,11 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
 @RestController
 public class RegistrationController {
 	
-	//@Autowired
-	//private RegistrationService registrationService;
+	@Autowired
+	private RegistrationService registrationService;
 	
 	@RequestMapping( method=RequestMethod.POST, value="/registration" )
 	public void registration( @RequestBody String jsonInString ) {
@@ -27,15 +31,12 @@ public class RegistrationController {
 		try {
 			
 			// Convert JSON string from file to Object
-			PersonTO test = mapper.readValue( jsonInString, PersonTO.class);
+			PersonTO personTO = mapper.readValue( jsonInString, PersonTO.class );
 			
-
+			registrationService.registerPerson( personTO );
 		}
-		catch( Exception ex ) {
-			ex.printStackTrace();
+		catch( IOException ioEX ) {
+			ioEX.printStackTrace();
 		}
-		//MEhr exeptions für besseres Fehlerhandling?
-		
-		//registrationService.registerPerson( person );
 	}
 }
