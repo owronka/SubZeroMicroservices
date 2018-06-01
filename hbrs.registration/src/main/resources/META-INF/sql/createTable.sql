@@ -30,4 +30,6 @@ create table app.account(
 ALTER TABLE APP.adresse ADD FOREIGN KEY (person) REFERENCES APP.person(id);
 ALTER TABLE APP.account ADD FOREIGN KEY (person) REFERENCES APP.person(id);
 
-
+create sequence ACCOUNT_ID as integer start with 100;
+create sequence ADDRESS_ID as integer start with 100;
+create sequence PERSON_ID  as integer start with 100;
