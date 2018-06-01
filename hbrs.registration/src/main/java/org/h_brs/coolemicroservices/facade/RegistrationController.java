@@ -1,5 +1,6 @@
 package org.h_brs.coolemicroservices.facade;
 
+import org.h_brs.coolemicroservices.facade.dto.PersonTO;
 import org.h_brs.coolemicroservices.facade.entities.Test;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +27,9 @@ public class RegistrationController {
 		try {
 			
 			// Convert JSON string from file to Object
-			Test test = mapper.readValue( jsonInString, Test.class);
-			//hier durch Person ersetzen und testen
+			PersonTO test = mapper.readValue( jsonInString, PersonTO.class);
 			
-			System.out.println(test.getName());
-			System.out.println(test.getAlter());
+
 		}
 		catch( Exception ex ) {
 			ex.printStackTrace();

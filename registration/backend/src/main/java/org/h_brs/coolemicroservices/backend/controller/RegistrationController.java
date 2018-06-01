@@ -1,5 +1,6 @@
 package org.h_brs.coolemicroservices.backend.controller;
 
+import org.h_brs.coolemicroservices.backend.dto.Person;
 import org.h_brs.coolemicroservices.backend.entities.Test;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +27,11 @@ public class RegistrationController {
 		try {
 			
 			// Convert JSON string from file to Object
-			Test test = mapper.readValue( jsonInString, Test.class);
+			Person newPerson = mapper.readValue( jsonInString, Person.class);
 			//hier durch Person ersetzen und testen
 			
-			System.out.println(test.getName());
-			System.out.println(test.getAlter());
+			System.out.println(newPerson.getAnrede());
+			System.out.println(newPerson.getUsername());
 		}
 		catch( Exception ex ) {
 			ex.printStackTrace();
