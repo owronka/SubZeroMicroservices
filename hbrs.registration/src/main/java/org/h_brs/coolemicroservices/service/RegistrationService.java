@@ -1,12 +1,12 @@
 package org.h_brs.coolemicroservices.service;
 
-import org.h_brs.coolemicroservices.facade.dto.Person;
+import org.h_brs.coolemicroservices.facade.dto.PersonTO;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RegistrationService {
 	
-	public void registerPerson( Person person) {
+	public void registerPerson( PersonTO person) {
 		
 		
 		//hier dann gucken ob Pflichtangaben gemacht etc

@@ -1,6 +1,6 @@
 package org.h_brs.coolemicroservices.facade.dto;
 
-public class Person {
+public class PersonTO {
 	private String anrede;
 	private String vorname;
 	private String nachname;
@@ -13,28 +13,6 @@ public class Person {
 	private String strasse;
 	private String hausnummer;
 	
-	public Person() {
-		
-	}
-	public Person(String anrede, String vorname, String nachname, String email, String username, String password,
-			String land, String plz, String ort, String strasse, String hausnummer) {
-		this.anrede = anrede;
-		this.vorname = vorname;
-		this.nachname = nachname;
-		this.email = email;
-		this.username = username;
-		this.password = password;
-		this.land = land;
-		this.plz = plz;
-		this.ort = ort;
-		this.strasse = strasse;
-		this.hausnummer = hausnummer;
-	}
-	public Person(String email, String username, String password) {
-		this.email = email;
-		this.username = username;
-		this.password = password;
-	}
 	
 	public String getAnrede() {
 		return anrede;
