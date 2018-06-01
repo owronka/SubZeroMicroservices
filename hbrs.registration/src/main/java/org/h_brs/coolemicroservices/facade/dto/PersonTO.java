@@ -1,36 +1,37 @@
 package org.h_brs.coolemicroservices.facade.dto;
 
+
 public class PersonTO {
-	private String anrede;
-	private String vorname;
-	private String nachname;
+	
+	private String salutation;
+	private String firstname;
+	private String lastname;
 	private String email;
 	private String username;
 	private String password;
-	private String land;
-	private String plz;
-	private String ort;
-	private String strasse;
-	private String hausnummer;
+	private String country;
+	private String postcode;
+	private String place;
+	private String street;
+	private String housenumber;
 	
-	
-	public String getAnrede() {
-		return anrede;
+	public String getSalutation() {
+		return salutation;
 	}
-	public void setAnrede(String anrede) {
-		this.anrede = anrede;
+	public void setSalutation(String salutation) {
+		this.salutation = salutation;
 	}
-	public String getVorname() {
-		return vorname;
+	public String getFirstname() {
+		return firstname;
 	}
-	public void setVorname(String vorname) {
-		this.vorname = vorname;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
-	public String getNachname() {
-		return nachname;
+	public String getLastname() {
+		return lastname;
 	}
-	public void setNachname(String nachname) {
-		this.nachname = nachname;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 	public String getEmail() {
 		return email;
@@ -50,34 +51,34 @@ public class PersonTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getLand() {
-		return land;
+	public String getCountry() {
+		return country;
 	}
-	public void setLand(String land) {
-		this.land = land;
+	public void setCountry(String country) {
+		this.country = country;
 	}
-	public String getPlz() {
-		return plz;
+	public String getPostcode() {
+		return postcode;
 	}
-	public void setPlz(String plz) {
-		this.plz = plz;
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
 	}
-	public String getOrt() {
-		return ort;
+	public String getPlace() {
+		return place;
 	}
-	public void setOrt(String ort) {
-		this.ort = ort;
+	public void setPlace(String place) {
+		this.place = place;
 	}
-	public String getStrasse() {
-		return strasse;
+	public String getStreet() {
+		return street;
 	}
-	public void setStrasse(String strasse) {
-		this.strasse = strasse;
+	public void setStreet(String street) {
+		this.street = street;
 	}
-	public String getHausnummer() {
-		return hausnummer;
+	public String getHousenumber() {
+		return housenumber;
 	}
-	public void setHausnummer(String hausnummer) {
-		this.hausnummer = hausnummer;
+	public void setHousenumber(String housenumber) {
+		this.housenumber = housenumber;
 	}
 }
