@@ -81,4 +81,10 @@ public class PersonTO {
 	public void setHousenumber(String housenumber) {
 		this.housenumber = housenumber;
 	}
+	@Override
+	public String toString() {
+		return "PersoTO\nsalutation = " + salutation + "\nfirstname = " + firstname + "\nlastname = " + lastname + "\nemail = "
+				+ email + "\nusername = " + username + "\npassword = " + password + "\ncountry = " + country + "\npostcode = "
+				+ postcode + "\nplace = " + place + "\nstreet = " + street + "\nhousenumber = " + housenumber;
+	}
 }
