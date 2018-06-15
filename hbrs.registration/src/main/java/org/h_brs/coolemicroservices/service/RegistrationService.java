@@ -1,41 +1,45 @@
 package org.h_brs.coolemicroservices.service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.h_brs.coolemicroservices.facade.dto.PersonTO;
+import org.h_brs.coolemicroservices.service.pdo.Person;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RegistrationService {
 	
-	public void registerPerson( PersonTO person ) {
+	@PersistenceContext(unitName="Registration")
+	EntityManager em;
+	
+	@Transactional
+	public void registerPerson( PersonTO person) {
 		
-		System.out.println( person.getSalutation() );
+		Person p = new Person();
+		p.setAnrede(person.getAnrede());
+		p.setVorname(person.getVorname());
+		p.setNachname(person.getNachname());
 		
-		System.out.println( person.getFirstname() );
+		Account a = new Account();
+		a.setEmail(person.getEmail());
+		a.setUsername(person.getUsername());
+		a.setPassword(person.getPassword());
+		a.setPerson(p.getId());
 		
-		System.out.println( person.getLastname() );
+		Address ad = new Address();
+		ad.setLand(person.getLand());
+		ad.setPlz(person.getPlz());
+		ad.setOrt(person.getOrt());
+		ad.setStrasse(person.getStrasse());
+		ad.setHausnummer(person.getHausnummer());
+		ad.setPerson(p.getId());
 		
-		System.out.println( person.getEmail() );
-		
-		System.out.println( person.getUsername() );
-		
-		System.out.println( person.getPassword() );
-		
-//		System.out.println( person.getCountry() );
-//		
-//		System.out.println( person.getPostcode() );
-//		
-//		System.out.println( person.getPlace() );
-//		
-//		System.out.println( person.getStreet() );
-//		
-//		System.out.println( person.getHousenumber() );
-		
-		//hier dann gucken ob Pflichtangaben gemacht etc
-		//eventuell email überprüfen mit lambda expressions etc
-		//dann erst in Db speichern
-		
-		//was ist mit EXception handling für User?
-		
+		em.persist(p);
+		em.persist(a);
+		em.persist(ad);
 	}
+	
 
 }
