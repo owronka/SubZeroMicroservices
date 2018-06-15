@@ -13,15 +13,17 @@
     <properties>
     
       <!-- enable these properties while you want to use embedded derby db -->
-      <!-- 
+       
       <property name="javax.persistence.jdbc.driver"   							value="org.apache.derby.jdbc.EmbeddedDriver" />
       <property name="javax.persistence.jdbc.url"      							value="jdbc:derby:memory:RegistrationDB;create=true" />
-       -->
+       
 
       <!-- enable these properties while you want to use network derby db  --> 
+      <!--
       <property name="javax.persistence.jdbc.driver"   							value="org.apache.derby.jdbc.ClientDriver" />
-      <property name="javax.persistence.jdbc.url"      							value="jdbc:derby://localhost:1527/DerbyDB/RegistrationDB;create=true" />
-
+      <property name="javax.persistence.jdbc.url"     							value="jdbc:derby://localhost:1527/DerbyDB/RegistrationDB;create=true" />
+ 		-->
+ 		
       <property name="javax.persistence.jdbc.user"     							value="registration_user" />
       <property name="javax.persistence.jdbc.password" 							value="S3cr3ts!" />
       <property name="javax.persistence.schema-generation.database.action" 		value="drop-and-create"/>
