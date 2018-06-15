@@ -18,9 +18,9 @@ public class RegistrationService {
 	public void registerPerson( PersonTO person) {
 		
 		Person p = new Person();
-		p.setAnrede(person.getAnrede());
-		p.setVorname(person.getVorname());
-		p.setNachname(person.getNachname());
+		p.setAnrede(person.getSalutation());
+		p.setVorname(person.getFirstname());
+		p.setNachname(person.getLastname());
 		
 		Account a = new Account();
 		a.setEmail(person.getEmail());
@@ -29,11 +29,11 @@ public class RegistrationService {
 		a.setPerson(p.getId());
 		
 		Address ad = new Address();
-		ad.setLand(person.getLand());
-		ad.setPlz(person.getPlz());
-		ad.setOrt(person.getOrt());
-		ad.setStrasse(person.getStrasse());
-		ad.setHausnummer(person.getHausnummer());
+		ad.setLand(person.getCountry());
+		ad.setPlz(person.getPostcode());
+		ad.setOrt(person.getPlace());
+		ad.setStrasse(person.getStreet());
+		ad.setHausnummer(person.getHousenumber());
 		ad.setPerson(p.getId());
 		
 		em.persist(p);
