@@ -5,7 +5,7 @@ import javax.persistence.PersistenceContext;
 
 import org.h_brs.coolemicroservices.facade.dto.PersonTO;
 import org.h_brs.coolemicroservices.service.pdo.Account;
-import org.h_brs.coolemicroservices.service.pdo.Adress;
+import org.h_brs.coolemicroservices.service.pdo.Address;
 import org.h_brs.coolemicroservices.service.pdo.Person;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +31,7 @@ public class RegistrationService {
 		a.setBenutzer(person.getUsername());
 		a.setPasswort(person.getPassword());
 		
-		Adress ad = new Adress(p.getId());
+		Address ad = new Address(p.getId());
 		ad.setLand(person.getCountry());
 		ad.setPlz(person.getPostcode());
 		ad.setOrt(person.getPlace());
