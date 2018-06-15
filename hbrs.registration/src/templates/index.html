@@ -1,0 +1,150 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+    <!--Startseite-->
+    <div data-role="page" id="start">
+        <div data-role="header">
+            <h1>Microservices</h1>
+            <div data-role="controlgroup" data-type="horizontal" class="ui-mini ui-btn-right">
+                <a href="#login" class="ui-btn ui-btn-icon-left ui-icon-user">Login</a>
+                <a href="#reg" class="ui-btn ui-btn-icon-left ui-icon-edit">Registrierung</a>
+            </div>
+        </div>
+        <div data-role="main" data-type="horizontal">
+        </div>
+    </div>
+
+    <!--Registrierung-->
+    <div data-role="page" id="reg">
+        <div data-role="header">
+            <div data-role="controlgroup" data-type="horizontal" class="ui-mini ui-btn-left">
+                    <a href="#start" class="ui-btn ui-btn-icon-left ui-icon-back">Zurück</a>
+            </div>
+            <h1>Microservices</h1>
+            <div data-role="controlgroup" data-type="horizontal" class="ui-mini ui-btn-right">
+                <a href="#login" class="ui-btn ui-btn-icon-left ui-icon-user">Login</a>
+                <a href="#reg" class="ui-btn ui-btn-icon-left ui-icon-edit ui-btn-active">Registrierung</a>
+            </div>
+        </div>
+        <div data-role="main" data-type="horizontal">
+                <div class="ui-corner-all custom-corners"style="max-width: 600px; margin: 0 auto">
+                    <div class="ui-grid-solo">
+                        <div class="ui-block-a">
+                            <h3 class="ui-bar ui-bar-a ui-corner-all">Registrierung</h3>
+                            <div class="ui-body ui-body-a ui-corner-all" style="padding: 2em">
+                                <div class="ui-field-contain">
+                                    <label for="salutation" class="select">Anrede</label>
+                                    <select name="salutation" id="salutation" data-native-menu="false">
+                                        <option value="Frau">Frau</option>
+                                        <option value="Herr">Herr</option>
+                                    </select>
+                                </div>
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a" style="padding-right: 20px">
+                                        <label for="firstname">Vorname:</label>
+                                        <input type="text" name="firstname" id="firstname" value="" placeholder="Max" >
+                                    </div>
+                                    <div class="ui-block-b" style="padding-right: 1px">
+                                        <label for="lastname">Nachname:</label>
+                                        <input type="text" name="lastname" id="lastname" value="" placeholder="Mustermann">
+                                    </div>
+                                </div>
+
+                                <label for="username">Benutzername:</label>
+                                <input type="text" name="username" id="username" value="">
+
+                                <label for="email">E-Mail:</label>
+                                <input type="text" name="email" id="email" value="">
+                                
+                                <div class="ui-grid-a">
+                                        <div class="ui-block-a" style="padding-right: 20px">
+                                            <label for="password">Passwort:</label>
+                                            <input type="password" name="password" id="password" value="">
+                                        </div>
+                                        <div class="ui-block-b" style="padding-right: 1px">
+                                            <label for="empty">Passwort wiederholen:</label>
+                                            <input type="password" name="empty" id="empty" value="">
+                                        </div>
+                                </div>
+
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a" style="padding-right: 20px">
+                                        <label for="place">Stadt:</label>
+                                        <input type="text" name="place" id="place" value="">
+                                    </div>
+                                    <div class="ui-block-b" style="padding-right: 1px">
+                                        <label for="postcode">Postleitzahl:</label>
+                                        <input type="text" name="postcode" id="postcode" value="">
+                                    </div>
+                                </div>
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a" style="padding-right: 20px">
+                                        <label for="street">Straße:</label>
+                                        <input type="text" name="street" id="street" value="">
+                                    </div>
+                                    <div class="ui-block-b" style="padding-right: 1px">
+                                        <label for="housenumber">Hausnummer:</label>
+                                        <input type="text" name="housenumber" id="housenumber" value="">
+                                    </div>
+                                </div>
+
+                                <label for="country">Land:</label>
+                                <input type="text" name="country" id="country" value="">
+
+                                <label for="country">Land:</label>
+                                <input type="text" name="country" id="country" value="">
+
+                                <input type="submit" value="Registrieren" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <!--Login-->
+    <div data-role="page" id="login">
+    <div data-role="header">
+            <div data-role="controlgroup" data-type="horizontal" class="ui-mini ui-btn-left">
+                    <a href="#start" class="ui-btn ui-btn-icon-left ui-icon-back">Zurück</a>
+            </div>
+            <h1>Microservices</h1>
+            <div data-role="controlgroup" data-type="horizontal" class="ui-mini ui-btn-right">
+                <a href="#login" class="ui-btn ui-btn-icon-left ui-icon-user ui-btn-active">Login</a>
+                <a href="#reg" class="ui-btn ui-btn-icon-left ui-icon-edit">Registrierung</a>
+            </div>
+        </div>
+        <div data-role="main" data-type="horizontal">
+            <div class="ui-corner-all custom-corners"style="max-width: 600px; margin: 0 auto">
+                <div class="ui-grid-solo">
+                    <div class="ui-block-a">
+                        <h3 class="ui-bar ui-bar-a ui-corner-all">Login</h3>
+                        <div class="ui-body ui-body-a ui-corner-all">
+                            <div class="ui-field-contain">
+                                <label for="user">Benutzername:</label>
+                                <input type="text" name="user" id="user" value="">
+                            </div>
+                            <div class="ui-field-contain">
+                                <label for="password">Passwort:</label>
+                                <input type="password" name="password" id="password" value="" autocomplete="off">
+                            </div>
+                            <div class="ui-field-contain">
+                                <button type="submit" id="submit" class="ui-shadow ui-btn ui-corner-all">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
