@@ -5,19 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ACCOUNT")
 public class Account {
-	
+	/*
 	public Account(int personID) {
 		this.personID= personID;
 	}
+	*/
+	public Account(int personID) {
+		//this.personID= personID;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_seq")
-	@SequenceGenerator(name = "ACCOUNT_ID", sequenceName = "ACCOUNT_ID", allocationSize = 1)
+	@SequenceGenerator(name = "account_seq", sequenceName = "ACCOUNT_ID", allocationSize = 1)
 	@Column(name = "ID")
 	private Integer id;
 	@Column(name = "EMAIL")
@@ -26,8 +33,12 @@ public class Account {
 	private String benutzer;
 	@Column(name = "PASSWORT")
 	private String passwort;
+	
+	/*
 	@Column(name = "PERSONID")
 	private Integer personID ;
+	*/
+	
 	public Integer getId() {
 		return id;
 	}
@@ -52,11 +63,15 @@ public class Account {
 	public void setPasswort(String passwort) {
 		this.passwort = passwort;
 	}
-	public Integer getPersonID() {
-		return personID;
+	
+	Person person;
+	@ManyToOne
+    @JoinColumn(name="id", nullable=false)
+	public Person getPersonID() {
+		return person;
 	}
-	public void setPersonID(Integer personID) {
-		this.personID = personID;
+	public void setPersonID(Person person) {
+		this.person = person;
 	}
 	
 }

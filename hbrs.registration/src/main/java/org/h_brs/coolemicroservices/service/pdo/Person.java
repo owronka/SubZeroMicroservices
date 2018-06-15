@@ -27,7 +27,7 @@ public class Person implements Serializable {
 	private String vorname;
 	private String nachname;
 	private List<Account> acs;
-    private List<Adress> ads;
+    private List<Address> ads;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="person_seq")
@@ -70,10 +70,10 @@ public class Person implements Serializable {
 		this.acs = acs;
 	}
 	@OneToMany(mappedBy="person")
-	public List<Adress> getAds() {
+	public List<Address> getAds() {
 		return ads;
 	}
-	public void setAds(List<Adress> ads) {
+	public void setAds(List<Address> ads) {
 		this.ads = ads;
 	}
 	

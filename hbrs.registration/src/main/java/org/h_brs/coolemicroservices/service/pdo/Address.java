@@ -5,20 +5,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ACCOUNT")
-public class Adress {
-	public Adress(int personID) {
-		this.personID= personID;
+public class Address {
+	public Address(int personID) {
+		//this.personID= personID;
 	}
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_seq")
-	@SequenceGenerator(name = "ADDRESS_ID", sequenceName = "ADDRESS_ID", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_seq")
+	@SequenceGenerator(name = "address_seq", sequenceName = "ADDRESS_ID", allocationSize = 1)
 	@Column(name = "ID")
 	private Integer id;
 	@Column(name = "LAND")
@@ -31,8 +33,8 @@ public class Adress {
 	private String strasse;
 	@Column(name = "HAUSNUMMER")
 	private String hausnummer;
-	@Column(name = "PERSONID")
-	private Integer personID ;
+	//@Column(name = "PERSONID")
+	//private Integer personID ;
 	public Integer getId() {
 		return id;
 	}
@@ -40,11 +42,14 @@ public class Adress {
 		this.id = id;
 	}
 
-	public Integer getPersonID() {
-		return personID;
+	Person person;
+	@ManyToOne
+    @JoinColumn(name="id", nullable=false)
+	public Person getPersonID() {
+		return person;
 	}
-	public void setPersonID(Integer personID) {
-		this.personID = personID;
+	public void setPersonID(Person person) {
+		this.person = person;
 	}
 	
 	public String getLand() {

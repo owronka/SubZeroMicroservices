@@ -4,11 +4,11 @@
   version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
   <persistence-unit name="Registration" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-	<!--     
-    <class>com.axxessio.axx2cld.registration.service.pdo.Account</class>
-    <class>com.axxessio.axx2cld.registration.service.pdo.Address</class>
-    <class>com.axxessio.axx2cld.registration.service.pdo.Person</class>
-    -->
+	    
+    <class>org.h_brs.coolemicroservices.service.pdo.Account</class>
+    <class>org.h_brs.coolemicroservices.service.pdo.Address</class>
+    <class>org.h_brs.coolemicroservices.service.pdo.Person</class>
+    
     
     <properties>
     
