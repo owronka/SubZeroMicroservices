@@ -29,9 +29,13 @@ public class RegistrationController {
 		ObjectMapper mapper = new ObjectMapper();
 		
 		try {
-			
 			// Convert JSON string from file to Object
 			PersonTO personTO = mapper.readValue( jsonInString, PersonTO.class );
+			//Konsolenausgabe
+			System.out.println( "/**************************\n"
+							  + "RegistrationController.java\n"
+							  + "Json input: \n" + jsonInString + "\nconverted to:\n" + personTO.toString()
+							  + "\n**************************/");
 			
 			registrationService.registerPerson( personTO );
 		}
