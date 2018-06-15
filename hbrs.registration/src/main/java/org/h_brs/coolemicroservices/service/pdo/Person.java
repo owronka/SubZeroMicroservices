@@ -12,8 +12,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.axxessio.axx2cld.registration.service.pdo.Account;
-import com.axxessio.axx2cld.registration.service.pdo.Address;
 
 @Entity
 @Table(name="A2C_PERSON")
@@ -29,7 +27,7 @@ public class Person implements Serializable {
 	private String vorname;
 	private String nachname;
 	private List<Account> acs;
-    private List<Address> ads;
+    private List<Adress> ads;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="person_seq")
@@ -72,10 +70,11 @@ public class Person implements Serializable {
 		this.acs = acs;
 	}
 	@OneToMany(mappedBy="person")
-	public List<Address> getAds() {
+	public List<Adress> getAds() {
 		return ads;
 	}
-	public void setAds(List<Address> ads) {
+	public void setAds(List<Adress> ads) {
 		this.ads = ads;
 	}
+	
 }

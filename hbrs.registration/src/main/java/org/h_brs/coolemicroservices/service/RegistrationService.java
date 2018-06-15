@@ -4,6 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.h_brs.coolemicroservices.facade.dto.PersonTO;
+import org.h_brs.coolemicroservices.service.pdo.Account;
+import org.h_brs.coolemicroservices.service.pdo.Adress;
 import org.h_brs.coolemicroservices.service.pdo.Person;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,28 +19,30 @@ public class RegistrationService {
 	@Transactional
 	public void registerPerson( PersonTO person) {
 		
+		System.out.println("reg service start");
+		
 		Person p = new Person();
 		p.setAnrede(person.getSalutation());
 		p.setVorname(person.getFirstname());
 		p.setNachname(person.getLastname());
 		
-		Account a = new Account();
+		Account a = new Account(p.getId());
 		a.setEmail(person.getEmail());
-		a.setUsername(person.getUsername());
-		a.setPassword(person.getPassword());
-		a.setPerson(p.getId());
+		a.setBenutzer(person.getUsername());
+		a.setPasswort(person.getPassword());
 		
-		Address ad = new Address();
+		Adress ad = new Adress(p.getId());
 		ad.setLand(person.getCountry());
 		ad.setPlz(person.getPostcode());
 		ad.setOrt(person.getPlace());
 		ad.setStrasse(person.getStreet());
 		ad.setHausnummer(person.getHousenumber());
-		ad.setPerson(p.getId());
 		
 		em.persist(p);
 		em.persist(a);
 		em.persist(ad);
+		
+		System.out.println("reg service done");
 	}
 	
 
