@@ -7,6 +7,20 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        var password = document.getElementById("password"), confirm_password = document.getElementById("confirm_password");
+
+        function validatePassword(){
+            if(password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwörter stimmen nicht überein!");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+    </script>
 </head>
 
 <body>
@@ -36,6 +50,7 @@
             </div>
         </div>
         <div data-role="main" data-type="horizontal">
+            <form action="" method="POST">
                 <div class="ui-corner-all custom-corners"style="max-width: 600px; margin: 0 auto">
                     <div class="ui-grid-solo">
                         <div class="ui-block-a">
@@ -51,60 +66,67 @@
                                 <div class="ui-grid-a">
                                     <div class="ui-block-a" style="padding-right: 20px">
                                         <label for="firstname">Vorname:</label>
-                                        <input type="text" name="firstname" id="firstname" value="" placeholder="Max" >
+                                        <input type="text" name="firstname" id="firstname" value="" placeholder="Max" required>
                                     </div>
                                     <div class="ui-block-b" style="padding-right: 1px">
                                         <label for="lastname">Nachname:</label>
-                                        <input type="text" name="lastname" id="lastname" value="" placeholder="Mustermann">
+                                        <input type="text" name="lastname" id="lastname" value="" placeholder="Mustermann" required>
                                     </div>
                                 </div>
 
                                 <label for="username">Benutzername:</label>
-                                <input type="text" name="username" id="username" value="">
+                                <input type="text" name="username" id="username" value="" required>
 
                                 <label for="email">E-Mail:</label>
-                                <input type="text" name="email" id="email" value="" placeholder="max@mustermann.de">
+                                <input type="email" name="email" id="email" value="" placeholder="max@mustermann.de" required>
                                 
                                 <div class="ui-grid-a">
                                         <div class="ui-block-a" style="padding-right: 20px">
-                                            <label for="password">Passwort:</label>
-                                            <input type="password" name="password" id="password" value="" placeholder="">
+                                            <label for="password">Passwort *:</label>
+                                            <input type="password" name="password" id="password" value="" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                         </div>
                                         <div class="ui-block-b" style="padding-right: 1px">
-                                            <label for="empty">Passwort wiederholen:</label>
-                                            <input type="password" name="empty" id="empty" value="">
+                                            <label for="confirm_password">Passwort wiederholen:</label>
+                                            <input type="password" name="confirm_password" id="confirm_password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                         </div>
                                 </div>
 
                                 <div class="ui-grid-a">
                                     <div class="ui-block-a" style="padding-right: 20px">
                                         <label for="place">Stadt:</label>
-                                        <input type="text" name="place" id="place" value="" placeholder="Sankt Augustin">
+                                        <input type="text" name="place" id="place" value="" placeholder="Sankt Augustin" required>
                                     </div>
                                     <div class="ui-block-b" style="padding-right: 1px">
                                         <label for="postcode">Postleitzahl:</label>
-                                        <input type="text" name="postcode" id="postcode" value="" placeholder="12345">
+                                        <input type="text" name="postcode" id="postcode" value="" placeholder="12345" required pattern="[0-9]{5}">
                                     </div>
                                 </div>
                                 <div class="ui-grid-a">
                                     <div class="ui-block-a" style="padding-right: 20px">
                                         <label for="street">Straße:</label>
-                                        <input type="text" name="street" id="street" value="" placeholder="Auf dem Holzweg">
+                                        <input type="text" name="street" id="street" value="" placeholder="Auf dem Holzweg" required>
                                     </div>
                                     <div class="ui-block-b" style="padding-right: 1px">
                                         <label for="housenumber">Hausnummer:</label>
-                                        <input type="text" name="housenumber" id="housenumber" value="" placeholder="95">
+                                        <input type="text" name="housenumber" id="housenumber" value="" placeholder="95" required pattern="[0-9]">
                                     </div>
                                 </div>
 
                                 <label for="country">Land:</label>
-                                <input type="text" name="country" id="country" value="" placeholder="Deutschland">
-
-                                <input type="submit" value="Registrieren" />
+                                <input type="text" name="country" id="country" value="" placeholder="Deutschland" required pattern="[A-Za-z]">
+                                <div style="padding-top: 2em; padding-bottom: 2em">
+                                    <input type="submit" value="Registrieren" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="ui-grid-solo">
+                    <div class="ui-block-a" style="text-align: center; color: gray; padding-top: 1em" >
+                        <em><span>* Min 8. Zeichen + Groß- und Kleinbuchstaben + Sonderzeichen</span></em>
+                    </div>
+                </div>
+            </form>
             </div>
     </div>
 
