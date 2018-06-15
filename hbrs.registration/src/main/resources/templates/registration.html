@@ -1,9 +1,9 @@
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<html lang="de">
 <head>
-	<title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
+    <title>Microservices</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -50,8 +50,8 @@
             </div>
         </div>
         <div data-role="main" data-type="horizontal">
-            <form action="" method="POST">
-                <div class="ui-corner-all custom-corners"style="max-width: 600px; margin: 0 auto">
+            <form id="registration">
+                <div class="ui-corner-all custom-corners" style="max-width: 600px; margin: 0 auto">
                     <div class="ui-grid-solo">
                         <div class="ui-block-a">
                             <h3 class="ui-bar ui-bar-a ui-corner-all">Registrierung</h3>
@@ -144,18 +144,18 @@
             </div>
         </div>
         <div data-role="main" data-type="horizontal">
-            <div class="ui-corner-all custom-corners"style="max-width: 600px; margin: 0 auto">
+            <div class="ui-corner-all custom-corners" style="max-width: 600px; margin: 0 auto">
                 <div class="ui-grid-solo">
                     <div class="ui-block-a">
                         <h3 class="ui-bar ui-bar-a ui-corner-all">Login</h3>
                         <div class="ui-body ui-body-a ui-corner-all">
                             <div class="ui-field-contain">
-                                <label for="user">Benutzername:</label>
-                                <input type="text" name="user" id="user" value="">
+                                <label for="username_login">Benutzername:</label>
+                                <input type="text" name="username_login" id="username_login" value="">
                             </div>
                             <div class="ui-field-contain">
-                                <label for="password">Passwort:</label>
-                                <input type="password" name="password" id="password" value="" autocomplete="off">
+                                <label for="password_login">Passwort:</label>
+                                <input type="password" name="password_login" id="password_login" value="" autocomplete="off">
                             </div>
                             <div class="ui-field-contain">
                                 <button type="submit" id="submit" class="ui-shadow ui-btn ui-corner-all">Login</button>
