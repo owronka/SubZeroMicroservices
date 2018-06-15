@@ -19,7 +19,7 @@ public class RegistrationController {
 	@Autowired
 	private RegistrationService registrationService;
 	
-	@RequestMapping( method=RequestMethod.POST, value="/registration" )
+	@RequestMapping( method=RequestMethod.POST, value="/registration/srv" )
 	public void registration( @RequestBody String jsonInString ) {
 		
 		/*
