@@ -33,6 +33,8 @@ public class Account {
 	private String benutzer;
 	@Column(name = "PASSWORT")
 	private String passwort;
+	@Column(name = "SALT")
+	private String salt;
 	
 	/*
 	@Column(name = "PERSONID")
@@ -62,6 +64,12 @@ public class Account {
 	}
 	public void setPasswort(String passwort) {
 		this.passwort = passwort;
+	}
+	public String getSalt() {
+		return passwort;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 	
 	Person person;
