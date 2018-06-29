@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "Account.findAccountByName", query = "SELECT a FROM Account a WHERE EMAIL = ?")
+	@NamedQuery(name = "Account.findAccountByName", query = "SELECT a.id, a.email, a.benutzer, a.passwort, a.salt FROM Account a WHERE a.EMAIL = ?")
 	})
 @Table(name = "ACCOUNT")
 public class Account {
@@ -31,6 +31,8 @@ public class Account {
 	private String benutzer;
 	@Column(name = "PASSWORT")
 	private String passwort;
+	@Column(name = "SALT")
+	private String salt;
 	
 	public Integer getId() {
 		return id;
@@ -55,6 +57,12 @@ public class Account {
 	}
 	public void setPasswort(String passwort) {
 		this.passwort = passwort;
+	}
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 	
 }

@@ -5,9 +5,7 @@
   <persistence-unit name="Registration" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	    
-    <class>org.h_brs.coolemicroservices.service.pdo.Account</class>
-    <class>org.h_brs.coolemicroservices.service.pdo.Address</class>
-    <class>org.h_brs.coolemicroservices.service.pdo.Person</class>
+    <class>org.h_brs.coolemicroservices.services.pdo.Account</class>
     
     
     <properties>
