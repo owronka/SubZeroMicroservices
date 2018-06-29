@@ -22,6 +22,7 @@ create table app.account(
 	email varchar(40),
 	benutzer varchar(15),
 	passwort varchar(20),
+	salt varchar(36),
 	person integer,
 	PRIMARY KEY (id)
 );
