@@ -32,7 +32,7 @@ public class RegistrationController {
 		
 		/*
 		 * JASON EINGABE KONVERTIEREN ZUM JAVA OBJEKT
-		 * PERSON.java
+		 * PERSONTO.java
 		 */
 		ObjectMapper mapper = new ObjectMapper();
 		
@@ -56,7 +56,7 @@ public class RegistrationController {
 			System.out.println( "Salt was generated" );
 
 			System.out.println( "Call RegistrationService" );
-			registrationService.registerPerson( personTO, salt, encodedHash( catenatePwdAndSalt( password, salt ) ) );
+			registrationService.registerPerson( personTO, salt, encodedHash( catenatePwdAndSalt( password, salt ) ) );			
 		}
 		catch( IOException ioEX ) {
 			ioEX.printStackTrace();
