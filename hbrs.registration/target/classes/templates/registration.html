@@ -36,7 +36,7 @@
                     sha1($('#password_login').val());
                     var hash = sha1.create();
                     hash.hex();
-                    console.log('{' + '"username" : "' + $('#username_login').valueOf() + '"' + ',' + '"password" : "' + hash + '" }')
+                    console.log('{' + '"username" : "' + $('#username_login').valueOf() + '"' + ',' + '"password" : "' + hash + '" }');
                     $.post('registration#start',  '{' + '"username" : "' + $('#username_login').valueOf() + '"' + ',' + '"password" : "' + hash + '" }');
                 }
             });
@@ -46,16 +46,25 @@
                 form = $("#registration_from");
                 form.validate();
                 if(form.valid) {
-                    sha1($('#password_login').val());
-                    var hash = sha1.create();
-                    hash.hex();
+                    console.log('registration#login', '{' + 
+                    '"salutation" : "' + $('#salutation').val() + '", ' + 
+                    '"firstname" : "' + $('#firstname').val() + '", ' + 
+                    '"lastname" : "' + $('#lastname').val() + '", ' + 
+                    '"email" : "' + $('#email').val() + '", ' + 
+                    '"username" : "' + $('#username').val() + '", ' + 
+                    '"password" : "' + $('#password').val() + '", ' + 
+                    '"country" : "' + $('#country').val() + '", ' + 
+                    '"postcode" : "' + $('#postcode').val() + '", ' + 
+                    '"place" : "' + $('#place').val() + '", ' + 
+                    '"street" : "' + $('#street').val() + '", ' + 
+                    '"housenumber" : "' + $('#housenumber').val() + '" }');
                     $.post('registration#login', '{' + 
                     '"salutation" : "' + $('#salutation').val() + '", ' + 
                     '"firstname" : "' + $('#firstname').val() + '", ' + 
                     '"lastname" : "' + $('#lastname').val() + '", ' + 
                     '"email" : "' + $('#email').val() + '", ' + 
                     '"username" : "' + $('#username').val() + '", ' + 
-                    '"password" : "' + hash + '", ' + 
+                    '"password" : "' + $('#password').val() + '", ' + 
                     '"country" : "' + $('#country').val() + '", ' + 
                     '"postcode" : "' + $('#postcode').val() + '", ' + 
                     '"place" : "' + $('#place').val() + '", ' + 
