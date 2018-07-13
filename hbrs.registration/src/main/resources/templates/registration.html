@@ -39,7 +39,7 @@
                     var hash = sha1.create();
                     hash.hex();
                     console.log('{' + '"username" : "' + $('#username_login').valueOf() + '"' + ',' + '"password" : "' + hash + '" }')
-                    $.post('registration#start',  '{' + '"username" : "' + $('#username_login').valueOf() + '"' + ',' + '"password" : "' + hash + '" }');
+                    $.post('/registration/sav/',  '{' + '"username" : "' + $('#username_login').valueOf() + '"' + ',' + '"password" : "' + hash + '" }');
                 }
             });
 
@@ -51,7 +51,7 @@
                     sha1($('#password_login').val());
                     var hash = sha1.create();
                     hash.hex();
-                    $.post('registration#login', '{' + 
+                    $.post('/registration/sav/', '{' + 
                     '"salutation" : "' + $('#salutation').val() + '", ' + 
                     '"firstname" : "' + $('#firstname').val() + '", ' + 
                     '"lastname" : "' + $('#lastname').val() + '", ' + 
