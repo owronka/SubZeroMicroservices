@@ -17,7 +17,7 @@ public class RegistrationService {
 	EntityManager em;
 	
 	@Transactional
-	public void registerPerson( PersonTO person) {
+	public void registerPerson( PersonTO person, byte[] salt, byte[] saltedpwdhash) {
 		
 		System.out.println("reg service start");
 		
