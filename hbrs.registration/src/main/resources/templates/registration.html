@@ -51,18 +51,26 @@
                     sha1($('#password_login').val());
                     var hash = sha1.create();
                     hash.hex();
-                    $.post('/registration/srv/', '{' + 
-                    '"salutation" : "' + $('#salutation').val() + '", ' + 
-                    '"firstname" : "' + $('#firstname').val() + '", ' + 
-                    '"lastname" : "' + $('#lastname').val() + '", ' + 
-                    '"email" : "' + $('#email').val() + '", ' + 
-                    '"username" : "' + $('#username').val() + '", ' + 
-                    '"password" : "' + hash + '", ' + 
-                    '"country" : "' + $('#country').val() + '", ' + 
-                    '"postcode" : "' + $('#postcode').val() + '", ' + 
-                    '"place" : "' + $('#place').val() + '", ' + 
-                    '"street" : "' + $('#street').val() + '", ' + 
-                    '"housenumber" : "' + $('#housenumber').val() + '" }' );
+                    $.ajax({
+                        type: "POST",
+                        url: "/registration/srv/",
+                        data: '{' + 
+                            '"salutation" : "' + $('#salutation').val() + '", ' + 
+                            '"firstname" : "' + $('#firstname').val() + '", ' + 
+                            '"lastname" : "' + $('#lastname').val() + '", ' + 
+                            '"email" : "' + $('#email').val() + '", ' + 
+                            '"username" : "' + $('#username').val() + '", ' + 
+                            '"password" : "' + hash + '", ' + 
+                            '"country" : "' + $('#country').val() + '", ' + 
+                            '"postcode" : "' + $('#postcode').val() + '", ' + 
+                            '"place" : "' + $('#place').val() + '", ' + 
+                            '"street" : "' + $('#street').val() + '", ' + 
+                            '"housenumber" : "' + $('#housenumber').val() + '" }',
+                        success: function () {
+                            console.log("Test");
+                        },
+                        dataType: "json"
+                        });
                 }
             });
         }
