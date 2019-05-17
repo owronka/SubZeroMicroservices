@@ -1,4 +1,4 @@
-package Microservice.Content;
+package com.axxessio.axx2cld.content;
 
 /**
  * Hello world!
