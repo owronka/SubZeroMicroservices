@@ -3,9 +3,7 @@ package com.axxessio.axx2cld.content.services.subarea;
 import java.util.List;
 import java.util.Optional;
 
-import com.axxessio.axx2cld.main.content.entities.SubArea;
-
-
+import com.axxessio.axx2cld.content.entities.SubArea;
 
 public interface SubAreaService {
 
@@ -14,7 +12,7 @@ public interface SubAreaService {
 	List<SubArea> readByArea(String area);
 
 	SubArea create(SubArea subarea);
-	
+
 	SubArea update(SubArea subarea);
 
 	Boolean delete(Integer id);

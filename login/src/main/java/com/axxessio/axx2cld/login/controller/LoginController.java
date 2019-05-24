@@ -18,60 +18,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.axxessio.axx2cld.login.entities.Account;
 import com.axxessio.axx2cld.login.entities.Login;
-import com.axxessio.axx2cld.login.entities.User;
 import com.axxessio.axx2cld.login.repository.AccountRepository;
 import com.axxessio.axx2cld.login.repository.LoginRepository;
-import com.axxessio.axx2cld.login.repository.UserRepository;
 
 
 @RestController
 @RequestMapping(path="/login")
 public class LoginController {
-	@Autowired
-	//private UserRepository userRepository;
-	private UserRepository userRepository;
+	
 	@Autowired
 	private LoginRepository loginRepository;
 	@Autowired
 	private AccountRepository accountRepository;
 	
-	@GetMapping// Map ONLY GET Requests
-	public @ResponseBody List<User> getAllUser () {
-		// @ResponseBody means the returned String is the response, not a view name
-		// @RequestParam means it is a parameter from the GET or POST request
-
-		List<User> userL = new ArrayList<>();
-		
-		this.userRepository.findAll().forEach(User -> {
-			userL.add(User);
-		});
-		return userL;
-	}
-	
-	@GetMapping("/{email}")
-	public @ResponseBody User getUserByEmail(@PathVariable(value="email") String email){
-		Optional<User> user = this.userRepository.findById(email);
-		if(user.isPresent()) {
-			return user.get();
-		}
-		return null;
-	}
-	
-	@PostMapping
-	public @ResponseBody User addUser(@RequestBody(required = true) User user) {
-		return this.userRepository.save(user);
-		
-	}
-	
-	@DeleteMapping("/{email}")
-	public @ResponseBody boolean deleteUser(@PathVariable(value="email") String email) {
-		Optional<User> user = this.userRepository.findById(email);
-		if(user.isPresent()) {
-			this.userRepository.delete(user.get());
-			return true;
-		}
-		return false;
-	}
 	
 //	@GetMapping("/{account}")
 //	public @ResponseBody ResponseEntity<Login> readLogin(@PathVariable(value="account") String account) {

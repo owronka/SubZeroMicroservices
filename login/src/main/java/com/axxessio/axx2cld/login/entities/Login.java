@@ -21,12 +21,7 @@ public class Login {
 	    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	    private Integer id;
 		
-//		@Column(name = "account") 
-//		private String accountName;
-//		
-//		private String salt;
-//		
-//		private String passwordHash;
+      	private String passwordHash;
 	    
 	    @OneToOne(mappedBy = "login")
 	    @JsonIgnore
@@ -73,32 +68,6 @@ public class Login {
 		public void setAccount(Account account) {
 			this.account = account;
 		}
-		
-		
-//		public Integer getId() {
-//			return id;
-//		}
-//		public void setId(int id) {
-//			this.id = id;
-//		}
-//		public String getAccountName() {
-//			return accountName;
-//		}
-//		public void setAccountName(String account) {
-//			this.accountName = account;
-//		}
-//		public String getPasswortHash() {
-//			return passwordHash;
-//		}
-//		public void setPasswortHash(String password) {
-//			this.passwordHash = password;
-//		}
-//		public String getSalt() {
-//			return salt;
-//		}
-//		public void setSalt(String salt) {
-//			this.salt = salt;
-//		}
 		
 		
 
