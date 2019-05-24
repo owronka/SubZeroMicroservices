@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +32,26 @@ public class LoginController {
 	@Autowired
 	private AccountRepository accountRepository;
 	
+	
+	@PostMapping
+	@ResponseBody
+	public ResponseEntity<Boolean> login(@RequestParam(name="account") String account, 
+										@RequestParam(name="password") String password){
+		Optional<Account> foundaccount = this.accountRepository.findByName(account);
+		if(foundaccount.isPresent()) {
+			Optional<Login> login = this.loginRepository.findByAccount(foundaccount.get());
+			Login loginFound = login.get();
+			if(account.equals(loginFound.getAccountName())&& password.equals(loginFound.getPasswordHash())) {
+				
+			
+			return new ResponseEntity<>(true,HttpStatus.OK);
+			}else {
+				return new ResponseEntity<>(false,HttpStatus.NOT_FOUND);
+
+			}
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
 	
 //	@GetMapping("/{account}")
 //	public @ResponseBody ResponseEntity<Login> readLogin(@PathVariable(value="account") String account) {
