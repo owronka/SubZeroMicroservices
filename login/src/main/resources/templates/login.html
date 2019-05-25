@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.star{color:red;}
+.login-form {
+    margin: 20%;
+    border: solid 1px blue;
+    border-radius: 1rem;
+}
+</style>
+<!-- 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+ -->
+<script src="../static/js/login.js"></script>
+
+<body>
+
+<div class="w3-container w3-indigo">
+  <h2>Bei axxess2cloud anmelden</h2>
+</div>
+<div class="w3-container">
+<form class="login-form w3-container">
+  <p>
+  <label>Account <span class="star">*</span></label>
+  <input class="w3-input" id="account" type="text" required></p>
+  <p>
+  <label>Password <span class="star">*</span></label>
+  <input class="w3-input" id="pwd" type="password"></p>
+  <p>
+  <input class="w3-input w3-center" onclick="login()" style="width: 10%;margin-left: 45%;" value="OK" type="button"></p>
+</form>
+</div>
+
+
+</body>
+</html> 
