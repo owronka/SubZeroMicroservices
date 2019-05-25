@@ -7,10 +7,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.axxessio.axx2cld.main.content.entities.Area;
-import com.axxessio.axx2cld.main.content.repositories.AreaRepository;
-
-
+import com.axxessio.axx2cld.content.entities.Area;
+import com.axxessio.axx2cld.content.repositories.AreaRepository;
 
 @Service
 public class AreaServiceImpl implements AreaService {

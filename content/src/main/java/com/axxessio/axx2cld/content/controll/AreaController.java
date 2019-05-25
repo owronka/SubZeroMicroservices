@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.axxessio.axx2cld.main.content.entities.Area;
-import com.axxessio.axx2cld.main.content.services.area.AreaService;
+import com.axxessio.axx2cld.content.entities.Area;
+import com.axxessio.axx2cld.content.services.area.AreaService;
 
 
 @RestController

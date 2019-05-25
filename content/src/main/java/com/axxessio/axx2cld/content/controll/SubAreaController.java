@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.axxessio.axx2cld.main.content.entities.SubArea;
-import com.axxessio.axx2cld.main.content.services.subarea.SubAreaService;
-
-
+import com.axxessio.axx2cld.content.entities.SubArea;
+import com.axxessio.axx2cld.content.services.subarea.SubAreaService;
 
 @RestController
 @RequestMapping("/content/subareas")

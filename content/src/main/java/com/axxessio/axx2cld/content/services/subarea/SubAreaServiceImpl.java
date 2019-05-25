@@ -6,12 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.axxessio.axx2cld.main.content.entities.Area;
-import com.axxessio.axx2cld.main.content.entities.SubArea;
-import com.axxessio.axx2cld.main.content.repositories.AreaRepository;
-import com.axxessio.axx2cld.main.content.repositories.SubAreaRepository;
-
-
+import com.axxessio.axx2cld.content.entities.Area;
+import com.axxessio.axx2cld.content.entities.SubArea;
+import com.axxessio.axx2cld.content.repositories.AreaRepository;
+import com.axxessio.axx2cld.content.repositories.SubAreaRepository;
 
 @Service
 public class SubAreaServiceImpl implements SubAreaService {
