@@ -9,10 +9,10 @@
 		<version>2.1.4.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>UserService</artifactId>
+	<groupId>com.axxessio</groupId>
+	<artifactId>content</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>UserService</name>
+	<name>content</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
