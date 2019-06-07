@@ -24,7 +24,7 @@ import com.axxessio.axx2cld.login.repository.LoginRepository;
 
 
 @RestController
-@RequestMapping(path="/login")
+@RequestMapping(path="/srvc/login")
 public class LoginController {
 	
 	@Autowired
