@@ -14,27 +14,39 @@ import com.axxessio.axx2cld.content.repositories.SubAreaRepository;
 @Service
 public class SubAreaServiceImpl implements SubAreaService {
 
+	/*
+	 * Erzeugung: SubAreaRepository; Erzeugung: AreaRepository;
+	 */
 	@Autowired
 	private SubAreaRepository subAreaRepository;
 	@Autowired
 	private AreaRepository areaRepository;
 
+	/*
+	 * Methode um SubAreas über den Namen zu suchen;
+	 */
 	@Override
 	public Optional<SubArea> readByName(String name) {
-		// TODO Auto-generated method stub
+
 		return subAreaRepository.findByName(name);
 	}
 
+	/*
+	 * Methode um SubAreas über eine Area zu suchen;
+	 */
 	@Override
 	public List<SubArea> readByArea(String area) {
 
 		return subAreaRepository.findByArea(area);
 	}
 
+	/*
+	 * Methode zu Erstellung einer SubArea. Vorhergehender Check, ob entsprechende
+	 * Area vorhanden ist;
+	 */
 	@Override
 	public SubArea create(SubArea subarea) {
 
-		// Subarea nur erstellen, wenn Area vorhanden
 		Optional<Area> area = areaRepository.findByName(subarea.getArea());
 		if (area.isPresent()) {
 			return subAreaRepository.save(subarea);
@@ -43,9 +55,11 @@ public class SubAreaServiceImpl implements SubAreaService {
 		return null;
 	}
 
+	/*
+	 * Update einer SubArea; Check, ob entsprechende Area vorhanden;
+	 */
 	public SubArea update(SubArea subarea) {
 
-		// Subarea nur erstellen, wenn Area vorhanden
 		Optional<Area> area = areaRepository.findByName(subarea.getArea());
 		if (area.isPresent()) {
 			return subAreaRepository.save(subarea);
@@ -55,6 +69,9 @@ public class SubAreaServiceImpl implements SubAreaService {
 
 	}
 
+	/*
+	 * Delete Methode über ID. Nur moeglich, wenn vorhanden;
+	 */
 	@Override
 	public Boolean delete(Integer id) {
 		try {

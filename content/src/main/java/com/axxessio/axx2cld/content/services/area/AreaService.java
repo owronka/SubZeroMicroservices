@@ -13,7 +13,6 @@ public interface AreaService {
 
 	Area create(Area area);
 
-	// Ja oder Nein?
 	Boolean delete(String name);
 
 	Area update(Area area);

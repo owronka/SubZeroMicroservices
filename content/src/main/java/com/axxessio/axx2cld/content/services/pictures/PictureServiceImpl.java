@@ -13,17 +13,28 @@ import com.axxessio.axx2cld.content.repositories.SubAreaRepository;
 
 @Service
 public class PictureServiceImpl implements PictureService {
-
+	
+	/*
+	 * Erzeugung SubAreaRepository;
+	 * Erzeugung PictureRepository;
+	 */
 	@Autowired
 	private SubAreaRepository subAreaRepository;
 	private PictureRepository pictureRepository;
 
+	/*
+	 * Methode um Pictures über den Subareaname zu suchen;
+	 */
 	@Override
 	public List<Picture> readBySubarea(String name) {
 
 		return pictureRepository.findBySubarea(name);
 	}
-
+	
+	/*
+	 * Methode zum Erstellen eines Bildes;
+	 * Vorhergehender Check ob entsprechende Subarea existiert;
+	 */
 	@Override
 	public Picture create(Picture pic) {
 
@@ -34,7 +45,11 @@ public class PictureServiceImpl implements PictureService {
 
 		return null;
 	}
-
+	
+	/*
+	 * Methode zum Löschen eines Pictures über dessen ID;
+	 * Try-Catch-Block um Existenz zu checken;
+	 */
 	@Override
 	public Boolean delete(Integer id) {
 		try {
