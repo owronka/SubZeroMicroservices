@@ -52,51 +52,31 @@ public class LoginController {
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
+
 	
-//	@GetMapping("/{account}")
-//	public @ResponseBody ResponseEntity<Login> readLogin(@PathVariable(value="account") String account) {
-//		Optional<Login> login = this.loginRepository.findByAccount(account);
-//		if(login.isPresent()) {
-//			return new ResponseEntity<Login>(login.get(),HttpStatus.OK);
+//	@GetMapping("/login/{name}")
+//	public @ResponseBody ResponseEntity<Login> readLogin(@PathVariable(value="name") String name) {
+//		
+//		Optional<Account> foundaccount = this.accountRepository.findByName(name);
+//		if(foundaccount.isPresent()) {
+//			Optional<Login> login = this.loginRepository.findByAccount(foundaccount.get());
+//			return new ResponseEntity<>(login.get(),HttpStatus.OK);
 //			
 //		}
-//		return new ResponseEntity<Login>(HttpStatus.NOT_FOUND);
+//		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 //		
 //	}
 	
-	@PostMapping("/account")
-	public @ResponseBody Account addAccount(@RequestBody(required = true) Account account) {
-		Login login = new Login();
-		account.setLogin(login);
-		//Account newAccount = new Account(account.getPersonId(), account.getName(), account.getPasswortdHash(), account.getSalt(), login);
-		//login.setAccount(newAccount);
-		return this.accountRepository.save(account);
-		
-	}
-	@GetMapping("/account/{name}")
-	public @ResponseBody ResponseEntity<Account> readAccountByName(@PathVariable(value="name") String name) {
-		
-		Optional<Account> foundaccount = this.accountRepository.findByName(name);
-		if(foundaccount.isPresent()) {
-			return new ResponseEntity<Account>(foundaccount.get(),HttpStatus.OK);
-			
-		}
-		return new ResponseEntity<Account>(HttpStatus.NOT_FOUND);
-		
-	}
+
+    @RequestMapping("/login")
+    public String loginRequest(@RequestParam(value="account", defaultValue="") String account, @RequestParam(value="password", defaultValue="") String pass) {
+        if(pass.equals("1234")) {
+        	return "Successful";	
+        }else {
+        	return "Error";
+        }
+    }
 	
-	@GetMapping("/login/{name}")
-	public @ResponseBody ResponseEntity<Login> readLogin(@PathVariable(value="name") String name) {
-		
-		Optional<Account> foundaccount = this.accountRepository.findByName(name);
-		if(foundaccount.isPresent()) {
-			Optional<Login> login = this.loginRepository.findByAccount(foundaccount.get());
-			return new ResponseEntity<>(login.get(),HttpStatus.OK);
-			
-		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		
-	}
 	
 	 
 	
