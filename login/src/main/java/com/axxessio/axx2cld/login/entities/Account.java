@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -34,24 +36,21 @@ public class Account {
 	
 	
 	
-	public Account() {
-		
+	public Account() {	
 	}
-	
 	
 	public Login getLogin() {
 		return login;
 	}
-
-
+	
 	public void setLogin(Login login) {
 		this.login = login;
 	}
-
-
+	
 	public Integer getId() {
 		return id;
 	}
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -67,11 +66,11 @@ public class Account {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPasswortdHash() {
+	public String getPasswordHash() {
 		return passwordHash;
 	}
-	public void setPasswortdHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+	public void setPasswordHash(String password) {
+		this.passwordHash = DigestUtils.sha256Hex(getName() +  password + getSalt());
 	}
 	public String getSalt() {
 		return salt;

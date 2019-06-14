@@ -37,7 +37,7 @@ public class Login {
 			return this.account.getName();
 		}
 		public String getPasswordHash() {
-			return this.account.getPasswortdHash();
+			return this.account.getPasswordHash();
 		}
 		
 		public String getSalt() {

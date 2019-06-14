@@ -1,13 +1,12 @@
 package com.axxessio.axx2cld.login.controller;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,64 +16,69 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.axxessio.axx2cld.login.entities.Account;
-import com.axxessio.axx2cld.login.entities.Login;
 import com.axxessio.axx2cld.login.repository.AccountRepository;
-import com.axxessio.axx2cld.login.repository.LoginRepository;
+import com.axxessio.axx2cld.login.entities.Account;
+
 
 
 @RestController
 @RequestMapping(path="/srvc/login")
 public class LoginController {
 	
-	@Autowired
-	private LoginRepository loginRepository;
+//	@Autowired
+//	private LoginRepository loginRepository;
 	@Autowired
 	private AccountRepository accountRepository;
-	
-	
-	@PostMapping
-	@ResponseBody
-	public ResponseEntity<Boolean> login(@RequestParam(name="account") String account, 
-										@RequestParam(name="password") String password){
-		Optional<Account> foundaccount = this.accountRepository.findByName(account);
-		if(foundaccount.isPresent()) {
-			Optional<Login> login = this.loginRepository.findByAccount(foundaccount.get());
-			Login loginFound = login.get();
-			if(account.equals(loginFound.getAccountName())&& password.equals(loginFound.getPasswordHash())) {
-				
-			
-			return new ResponseEntity<>(true,HttpStatus.OK);
-			}else {
-				return new ResponseEntity<>(false,HttpStatus.NOT_FOUND);
 
-			}
-		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	@PostMapping("/saveAccounts")
+	public String saveAccount(@RequestBody List<Account> accounts) {
+		accountRepository.saveAll(accounts);
+		return accounts.size() + " record saved..";
+	}
+	
+	@GetMapping("/getAll")
+	public List<Account> getAllAccounts(){
+		return (List<Account>)accountRepository.findAll();
 	}
 
+	@GetMapping("/getAccountByName/{name}")
+	public Account findUserbyName(@PathVariable String name) {
+		return accountRepository.findByName(name);
+	}
 	
-//	@GetMapping("/login/{name}")
-//	public @ResponseBody ResponseEntity<Login> readLogin(@PathVariable(value="name") String name) {
-//		
-//		Optional<Account> foundaccount = this.accountRepository.findByName(name);
-//		if(foundaccount.isPresent()) {
-//			Optional<Login> login = this.loginRepository.findByAccount(foundaccount.get());
-//			return new ResponseEntity<>(login.get(),HttpStatus.OK);
-//			
-//		}
-//		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//		
-//	}
+//localhost:8001/srvc/login/createAllData
+	@GetMapping("/createAllData")
+	public void createAlldata() throws IOException {
+		CreateDataAtBeginning.createData();
+	}
 	
 
-    @RequestMapping("/login")
-    public String loginRequest(@RequestParam(value="account", defaultValue="") String account, @RequestParam(value="password", defaultValue="") String pass) {
-        if(pass.equals("1234")) {
-        	return "Successful";	
-        }else {
-        	return "Error";
-        }
+	//REST API um die übermittelten Daten aus dem Login ( Username & Passwort ) zu überprüfen
+	//Rückgabe der erfogreichen/fehlerhaften Anmeldung
+    @GetMapping(value="/verify")
+    public @ResponseBody ResponseEntity<String> verify(
+    		@RequestParam(value="account", defaultValue="") String account, 
+    		@RequestParam(value="password", defaultValue="") String pass) {
+    	
+    	//Benutzer aus der Datenbank auslesen (Existiert nicht => Fehler)
+    	//Passwort Hash aus Datenbank mit erzeugtem Hash vergleichen (Ungleich => fehlerhafte Anmeldedaten)
+    	//sonst erfolgreich angemeldet!!
+    	
+    	Account actualAccount = accountRepository.findByName(account);
+    	
+    	if(actualAccount!=null) {
+			String actualPasswordHash = DigestUtils.sha256Hex(actualAccount.getName() +  pass + actualAccount.getSalt());
+			
+	    	if(actualPasswordHash.equals(actualAccount.getPasswordHash())) {
+	    		
+	    		return new ResponseEntity<>("Erfolgreich angemeldet!",  HttpStatus.OK);	
+	        }else {
+	    		return new ResponseEntity<>("Error, Falsches Passwort!", HttpStatus.OK);
+	        }
+    	}else {
+    		return new ResponseEntity<>("Nutzer Existiert nicht!", HttpStatus.OK);
+    	}
+    	
     }
 	
 	

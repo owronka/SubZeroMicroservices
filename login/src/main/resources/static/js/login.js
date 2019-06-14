@@ -7,28 +7,44 @@ function login(){
 	body = '{"account" : "' + account + '","password" : "' + password + '"}';
 	postData(account, password);
 
-//s
-	
+}
 	
 	
 	
 function postData(account, password){
-	fetch("http://localhost:8001/login?account="+account+"&password=" + password, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, cors, *same-origin
-        headers: {
-            'Content-Type': 'application/json',
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrer: 'no-referrer', // no-referrer, *client
-        body: JSON.stringify({}), // body data type must match "Content-Type" header
-    })
-    .then(response => {
-    	console.log(response.json());
-    	}); // parses JSON response into native Javascript objects
-    
+
+	var url = "http://localhost:8001/srvc/login/verify?account=" + account + "&password=" + password;
+
+		var form = new FormData();
+
+		var settings = {
+		  "async": true,
+		  "crossDomain": true,
+		  "url": url,
+		  "method": "GET",
+		  "headers": {
+		    "cache-control": "no-cache",
+		    "postman-token": "e59c3fcc-4b44-28d6-545a-6df1e3fe4d0a"
+		  },
+		  "processData": false,
+		  "contentType": false,
+		  "mimeType": "multipart/form-data",
+		  "data": form
+		}
+
+		$.ajax(settings).done(function (response) {
+		  
+		  alert(response);
+		});
 }
+
+
+function formEncode(obj) {
+        var str = [];
+        for(var p in obj)
+        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        return str.join("&");
+    };
 
 	
 //
