@@ -33,8 +33,13 @@ function postData(account, password){
 		}
 
 		$.ajax(settings).done(function (response) {
-		  
-		  alert(response);
+			if(response.includes("Error")){
+				document.getElementById('message').style.display = 'block';
+				return
+			}
+			
+			window.location = "http://" + window.location.hostname + "/content.html";
+				  //alert(response);
 		});
 }
 
