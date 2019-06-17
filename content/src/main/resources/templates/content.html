@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Axxess2Cloud - Content</title>
+<link rel="stylesheet" type="text/css" href="content/css/enhanced.css" />
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+<script src="content/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="content/js/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
+<script src="content/js/content.js" type="text/javascript"></script>
+<script src="content/js/fileinput.js" type="text/javascript"></script>
+<script src="content/js/helper.js" type="text/javascript"></script>
+<script src="content/js/server.js" type="text/javascript"></script>
+</head>
+<body>
+    <!-- page:list-areas -->
+    <div data-role="page" id="list-areas">
+        <form id="list-areas-form">
+            <!-- page:list-areas - header -->
+            <div data-role="header" data-position="fixed">
+                <fieldset class="ui-grid-b" id="list-areas-header-field-set">
+                    <div class="ui-block-a" id="list-areas-header-field-set-left-header">
+                        <a href="http://localhost:8000/main" data-transition="slidedown"
+                            data-role="button" data-icon="arrow-u" rel="external">Zur&uuml;ck</a>                    
+                    </div>
+                    <div class="ui-block-b" id="list-areas-header-field-set-mid-header">
+                    </div>
+                    <div class="ui-block-c" id="list-areas-header-field-set-right-header">
+                    </div>
+                </fieldset>
+            </div>
+            <!-- page:list-areas - /header -->
+            <!-- page:list-areas - content -->
+            <div data-role="content">
+                <div class="content-primary">
+                    <ul id="list-area-list" data-role="listview">
+                    </ul>
+                </div>
+            </div>
+            <!-- page:list-areas - /content -->
+        </form>
+    </div>
+    <!-- /page:list-areas -->
+
+	<!-- page:edit-area-areas -->
+	<div data-role="page" id="edit-areas">
+		<form id="edit-areas-form">
+			<!-- page:edit-areas - header -->
+			<div data-role="header" data-position="fixed">
+				<fieldset class="ui-grid-b" id="edit-areas-header-field-set">
+                    <div class="ui-block-a" id="edit-areas-header-field-set-top-left-header">
+						<a href="#list-areas" data-transition="slidedown" data-role="button" data-icon="arrow-l">Zur&uuml;ck</a>
+                    </div>
+                    <div class="ui-block-b" id="edit-areas-header-field-set-top-mid-header">
+                    </div>
+                    <div class="ui-block-c" id="edit-areas-header-field-set-top-right-header">
+                    </div>
+					<div class="ui-block-a" id="edit-areas-header-field-set-bottom-left-header">
+					</div>
+                    <div class="ui-block-b" id="edit-areas-header-field-set-bottom-mid-header">
+                    </div>
+                    <div class="ui-block-c" id="edit-areas-header-field-set-bottom-right-header">
+                    </div>
+                </fieldset>
+            </div>
+			<!-- page:edit-areas - /header -->
+			<!-- page:edit-areas - content -->
+			<div data-role="content">
+				<div class="content-primary">
+					<ul id="edit-area-list" data-role="listview">
+					</ul>
+				</div>
+			</div>
+			<!-- page:edit-areas - /content -->
+		</form>
+	</div>
+	<!-- /page:edit-areas -->
+
+	<!-- page:new-area -->
+	<div data-role="page" id="new-area">
+		<form id="new-area-form">
+			<!-- page:new-area - header -->
+			<div data-role="header" data-position="fixed">
+				<fieldset class="ui-grid-b">
+					<div class="ui-block-a">
+						<a href="#edit-areas" data-transition="slidedown"
+							data-role="button" data-icon="arrow-u">Zur&uuml;ck</a>
+					</div>
+				</fieldset>
+			</div>
+			<!-- page:new-area - /header -->
+			<!-- page:new-area - content -->
+			<div data-role="content">
+
+				<label for="new-area-area-name-text" id="new-area-area-name-label">Area:</label> 
+				<input type="text" id="new-area-area-name-text" value="" size="20" maxlength="255" onkeydown="if (event.keyCode == 13) newArea()"/> 
+                <a data-role="button" data-icon="check" data-inline="true" onclick="newArea()">Ok</a>	
+
+			</div>
+			<!-- page:new-area - /content -->
+		</form>
+	</div>
+	<!-- /page:new-area -->
+    <div data-role="dialog" id="new-area-dialog" class="ui-corner-all">
+        <div data-role="header" data-theme="a" class="ui-corner-top">
+            <h1>Area angelegt!</h1>
+        </div>
+        <div data-role="content" data-theme="d"
+            class="ui-corner-bottom ui-content">
+            <h2>Die Area wurde erfolgreich angelegt!</h2>
+            <a href="#edit-areas" data-role="button" data-inline="true"
+                data-theme="a">Ok</a>
+        </div>
+    </div>
+
+	<!-- page:rename-areas -->
+	<div data-role="page" id="rename-areas">
+		<form id="rename-areas-form">
+			<!-- page:rename-areas - header -->
+			<div data-role="header" data-position="fixed">
+				<fieldset class="ui-grid-b">
+					<div class="ui-block-a">
+						<a href="#edit-areas" data-transition="slidedown"
+							data-role="button" data-icon="arrow-u">Zur&uuml;ck</a>
+					</div>
+				</fieldset>
+			</div>
+			<!-- page:rename-areas - /header -->
+			<!-- page:rename-areas - content -->
+			<div data-role="content">
+				<div class="content-primary">
+					<ul id="rename-area-list" data-role="listview">
+					</ul>
+				</div>
+			</div>
+			<!-- page:rename-areas - /content -->
+		</form>
+	</div>
+	<!-- /page:rename-areas -->
+
+	<!-- page:edit-area -->
+	<div data-role="page" id="edit-area">
+		<form id="edit-area-form">
+			<!-- page:edit-area - header -->
+			<div data-role="header" data-position="fixed">
+				<fieldset class="ui-grid-b">
+					<div class="ui-block-a">
+						<a href="#rename-areas" data-rel="back" data-role="button"
+							data-icon="arrow-l">Zur&uuml;ck</a>
+					</div>
+				</fieldset>
+			</div>
+			<!-- page:edit-area - /header -->
+			<!-- page:edit-area - content -->
+			<div data-role="content">
+
+				<label for="edit-area-area-name-text" id="edit-area-area-name-label">Area:</label> 
+				<input type="text" id="edit-area-area-name-text" value="" size="20" maxlength="255" onkeydown="if (event.keyCode == 13) editArea()"/>
+
+				<a data-role="button" data-icon="check"	data-inline="true" onclick="editArea()">Ok</a>
+
+			</div>
+			<!-- page:edit-area - /content -->
+		</form>
+	</div>
+	<!-- /page:edit-area -->
+    <div data-role="dialog" id="edit-area-dialog" class="ui-corner-all">
+        <div data-role="header" data-theme="a" class="ui-corner-top">
+            <h1>Area umbenennen</h1>
+        </div>
+        <div data-role="content" data-theme="d"
+            class="ui-corner-bottom ui-content">
+            <h2>Diese Funktion wird derzeit nicht unterstützt</h2>
+            <a href="#edit-areas" data-role="button" data-inline="true"
+                data-theme="a">Ok</a>
+        </div>
+    </div>
+
+
+	<!-- page:delete-areas -->
+	<div data-role="page" id="delete-areas">
+		<form id="delete-areas-form">
+			<!-- page:delete-areas - header -->
+			<div data-role="header" data-position="fixed">
+				<fieldset class="ui-grid-b">
+					<div class="ui-block-a">
+						<a href="#edit-areas" data-transition="slidedown"
+							data-role="button" data-icon="arrow-u">Zur&uuml;ck</a>
+					</div>
+				</fieldset>
+			</div>
+			<!-- page:delete-areas - /header -->
+
+			<!-- page:delete-areas - content -->
+			<div data-role="content">
+				<div class="content-primary">
+					<ul id="delete-area-list" data-role="listview">
+					</ul>
+				</div>
+			</div>
+			<!-- page:delete-areas - /content -->
+		</form>
+	</div>
+	<!-- /page:delete-areas -->
+    <div data-role="dialog" id="delete-area-dialog" class="ui-corner-all">
+        <div data-role="header" data-theme="a" class="ui-corner-top">
+            <h1>Area l&ouml;schen?</h1>
+        </div>
+        <div data-role="content" data-theme="d"
+            class="ui-corner-bottom ui-content">
+            <h2>Diese Aktion kann nicht r&uuml;ckg&auml;ngig gemacht werden.</h2>
+            <h2>Alle Bilder der Area werden ebenfalls gel&ouml;scht!</h2>
+            <a data-role="button" data-inline="true" data-rel="back"
+               data-theme="c">Abbruch</a> <a href="#edit-areas"
+               data-role="button" data-inline="true" data-transition="flow"
+               data-theme="b" onclick="deleteArea()">L&ouml;schen</a>
+        </div>
+    </div>
+
+    <!-- page:list-pictures -->
+    <div data-role="page" id="list-pictures">
+        <form id="list-pictures-form">
+            <!-- page:list-pictures - header -->
+            <div data-role="header" data-position="fixed">
+                <fieldset class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <a href="#list-areas" data-transition="slidedown"
+                            data-role="button" data-icon="arrow-l">Zur&uuml;ck</a>
+                    </div>
+                </fieldset>
+            </div>
+            <!-- page:list-pictures - /header -->
+            <!-- page:list-pictures - content -->
+            <div data-role="content">
+                <div class="content-primary">
+                    <ul id="list-picture-list" data-role="listview">
+                    </ul>
+                </div>
+            </div>
+            <!-- page:list-pictures - /content -->
+        </form>
+    </div>
+    <!-- /page:list-pictures -->
+
+	<!-- page:new-picture -->
+	<div data-role="page" id="new-picture">
+		<form action="/content/web/upload"
+			enctype="multipart/form-data" id="new-picture-form" method="post"
+			data-ajax="false">
+			<!-- page:new-picture - header -->
+			<div data-role="header" data-position="fixed">
+				<fieldset class="ui-grid-b">
+					<div class="ui-block-a">
+						<a href="#edit-areas" data-rel="back" data-role="button"
+							data-icon="arrow-l">Zur&uuml;ck</a>
+					</div>
+				</fieldset>
+			</div>
+			<!-- page:new-picture - /header -->
+			<!-- page:new-picture - content -->
+			<div data-role="content">
+				<label for="new-picture-area-name-text" id="new-picture-area-name-label">Area:</label> 
+				<input type="text" id="new-picture-area-name-text" value=""	disabled="true" />
+				<input type="hidden" id="new-picture-area-id-text" name="new-picture-area-id-text" value="" /> 
+				<label for="new-picture-file">Bild:</label>
+				<input id="new-picture-file" name="new-picture-file" type="file" />
+				<a href="#uploadPictureDialog" data-role="button" data-icon="check"
+					data-rel="popup" data-position-to="window" data-inline="true"
+					data-transition="pop" onclick="uploadPicture()">Ok</a>
+			</div>
+
+			<!-- page:new-picture - /content -->
+			<div data-role="popup" id="uploadPictureDialog"
+				data-overlay-theme="a" data-theme="c" style="max-width: 400px;"
+				class="ui-corner-all">
+				<div data-role="header" data-theme="a" class="ui-corner-top">
+					<h1>Bild hochladen</h1>
+				</div>
+				<div data-role="content" data-theme="d"
+					class="ui-corner-bottom ui-content">
+					<h3>Das Bild wird hochgeladen...</h3>
+					<img src="http://localhost:8888/img/loader.gif" align="middle" />
+				</div>
+			</div>
+		</form>
+	</div>
+    <!-- /page:new-picture -->
+
+    <!-- page:show-picture -->
+    <div data-role="page" id="show-picture">
+        <!-- page:show-picture - header -->
+        <div data-role="header" data-position="fixed">
+            <fieldset class="ui-grid-b">
+                <div class="ui-block-a">
+                    <a href="#list-pictures" data-rel="back" data-role="button"
+                        data-icon="arrow-l">Zur&uuml;ck</a>
+                </div>
+            </fieldset>
+        </div>
+        <!-- page:show-picture - /header -->
+        <!-- page:show-picture - content -->
+        <div data-role="content">
+            <img src="" align="middle" name="show-picture" width="100%"/>
+        </div>
+    </div>
+    <!-- /page:show-picture -->
+
+    <!-- page:navigate-after-upload -->
+    <div data-role="page" id="navigate-after-upload">
+        <!-- page:navigate-after-upload - header -->
+        <!-- page:navigate-after-upload - /header -->
+        <!-- page:navigate-after-upload - content -->
+        <div data-role="content">
+			<div style="text-align:center; padding:20px;">
+				<form>
+					<h1>Das Bild wurde erfolgreichhochgeladen!</h1>
+					<h2>Was möchten Sie als n&auml;chstes tun?</h2>
+                    <a href="#list-areas" data-transition="slideup" data-role="button" data-icon="arrow-u">Areas anschauen</a>
+                    <a href="#edit-areas" data-transition="slideup" data-role="button" data-icon="arrow-u">Areas bearbeiten</a>
+                    <a href="#select" data-transition="slideup" data-role="button" data-icon="home" onclick="logout()">Logout</a>
+                    <a href="#new-picture" data-transition="slideup" data-role="button" data-icon="plus" onclick="nextPicture()">Weiteres Bild hochladen</a>
+				</form>
+			</div>        
+		</div>
+    </div>
+    <!-- /page:navigate-after-upload -->
+
+    <!-- page:error-after-upload -->
+    <div data-role="page" id="error-after-upload">
+        <!-- page:error-after-upload - header -->
+        <!-- page:error-after-upload - /header -->
+        <!-- page:error-after-upload - content -->
+        <div data-role="content">
+			<div style="text-align:center; padding:20px;">
+				<form>
+					<h1 style="color:red">Das Bild konnte nicht hochgeladen werden!</h1>
+					<h2>Bitte beachten Sie, dass derzeit nur Bild im JPG-Format akzeptiert werden!</h2>
+					<h2>Was möchten Sie als n&auml;chstes tun?</h2>
+                    <a href="#list-areas" data-transition="slideup" data-role="button" data-icon="arrow-u">Areas anschauen</a>
+                    <a href="#edit-areas" data-transition="slideup" data-role="button" data-icon="arrow-u">Areas bearbeiten</a>
+                    <a href="#select" data-transition="slideup" data-role="button" data-icon="home" onclick="logout()">Logout</a>
+                    <a href="#new-picture" data-transition="slideup" data-role="button" data-icon="plus" onclick="nextPicture()">Weiteres Bild hochladen</a>
+				</form>
+			</div>        
+		</div>
+    </div>
+    <!-- /page:error-after-upload -->
+</body>
+</html>
