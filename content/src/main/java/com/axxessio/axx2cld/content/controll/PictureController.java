@@ -34,9 +34,9 @@ public class PictureController {
 	}
 
 	@GetMapping("/subarea/{name}")
-	public ResponseEntity<List<Picture>> readBySubArea(@PathVariable(name = "name") String name) {
+	public ResponseEntity<Picture> readBySubArea(@PathVariable(name = "name") String name) {
 
-		return new ResponseEntity<List<Picture>>(pictureService.readBySubarea(name), HttpStatus.OK);
+		return new ResponseEntity<Picture>(pictureService.readByName(name).get(), HttpStatus.OK);
 
 	}
 	/*
@@ -47,7 +47,7 @@ public class PictureController {
 	 */
 
 	@DeleteMapping(params = "id")
-	public ResponseEntity<Boolean> delete(@RequestParam(required = true, value = "id") Integer id) {
+	public ResponseEntity<Boolean> delete(@RequestParam(required = true, value = "id") String id) {
 
 		return new ResponseEntity<Boolean>(pictureService.delete(id), HttpStatus.OK);
 

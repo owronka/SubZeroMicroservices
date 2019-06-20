@@ -9,12 +9,12 @@ public interface SubAreaService {
 
 	Optional<SubArea> readByName(String name);
 
-	List<SubArea> readByArea(String area);
+	Optional<SubArea> readByArea(String area);
 
 	SubArea create(SubArea subarea);
 
 	SubArea update(SubArea subarea);
 
-	Boolean delete(Integer id);
+	Boolean delete(String id);
 
 }

@@ -26,9 +26,9 @@ public class PictureServiceImpl implements PictureService {
 	 * Methode um Pictures über den Subareaname zu suchen;
 	 */
 	@Override
-	public List<Picture> readBySubarea(String name) {
+	public Optional<Picture> readByName(String name) {
 
-		return pictureRepository.findBySubarea(name);
+		return pictureRepository.findByName(name);
 	}
 	
 	/*
@@ -38,7 +38,7 @@ public class PictureServiceImpl implements PictureService {
 	@Override
 	public Picture create(Picture pic) {
 
-		Optional<SubArea> subarea = subAreaRepository.findByName(pic.getSubarea());
+		Optional<SubArea> subarea = subAreaRepository.findByName(pic.getSubareaId());
 		if (subarea.isPresent()) {
 			pictureRepository.save(pic);
 		}
@@ -51,7 +51,7 @@ public class PictureServiceImpl implements PictureService {
 	 * Try-Catch-Block um Existenz zu checken;
 	 */
 	@Override
-	public Boolean delete(Integer id) {
+	public Boolean delete(String id) {
 		try {
 			pictureRepository.deleteById(id);
 			return true;
