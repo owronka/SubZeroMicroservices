@@ -65,7 +65,6 @@ public class LoginController {
     	//sonst erfolgreich angemeldet!!
     	
     	Account actualAccount = accountRepository.findByName(account);
-    	
     	if(actualAccount!=null) {
 			String actualPasswordHash = DigestUtils.sha256Hex(actualAccount.getName() +  pass + actualAccount.getSalt());
 			
@@ -73,10 +72,10 @@ public class LoginController {
 	    		
 	    		return new ResponseEntity<>("Erfolgreich angemeldet!",  HttpStatus.OK);	
 	        }else {
-	    		return new ResponseEntity<>("Error, Falsches Passwort!", HttpStatus.OK);
+	    		return new ResponseEntity<>("Error, Falsches Passwort!", HttpStatus.UNAUTHORIZED);
 	        }
     	}else {
-    		return new ResponseEntity<>("Nutzer Existiert nicht!", HttpStatus.OK);
+    		return new ResponseEntity<>("Nutzer Existiert nicht!", HttpStatus.NOT_FOUND);
     	}
     	
     }

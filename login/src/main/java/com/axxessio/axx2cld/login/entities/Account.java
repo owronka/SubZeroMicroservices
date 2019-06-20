@@ -34,8 +34,6 @@ public class Account {
 	@JsonIgnore
 	private Login login;
 	
-	
-	
 	public Account() {	
 	}
 	
