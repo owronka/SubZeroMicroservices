@@ -8,8 +8,8 @@ function content () {
 	req.open('GET', conURL, true);  
 
 	req.onreadystatechange = function(){
-		if (req.readyState == 4) {
-			if (req.status == 200) {
+		if (req.readyState == 4 || req.readyState == 2 || req.readyState == 3) {
+			if (req.status == 0 || req.status == 200) {
 				window.location.href = conURL;
 			} else {
 				$.mobile.changePage('#content-error-dialog', 'pop', true, true);
@@ -31,8 +31,8 @@ function login () {
 
 	req.onreadystatechange = function(){
 		console.log('readyState [' + req.readyState + ' - status [' + req.status + ']');
-		if (req.readyState == 4) {
-			if (req.status == 200) {
+		if (req.readyState == 4 || req.readyState == 2 || req.readyState == 3) {
+			if (req.status == 0 || req.status == 200) {
 				window.location.href = logURL;
 			} else {
 				$.mobile.changePage('#login-error-dialog', 'pop', true, true);
@@ -51,8 +51,8 @@ function register () {
 	req.open('GET', regURL, true);  
 
 	req.onreadystatechange = function(){
-		if (req.readyState == 4) {
-			if (req.status == 200) {
+		if (req.readyState == 4 || req.readyState == 2 || req.readyState == 3) {
+			if (req.status == 0 || req.status == 200) {
 				window.location.href = regURL;
 			} else {
 				$.mobile.changePage('#registration-error-dialog', 'pop', true, true);
