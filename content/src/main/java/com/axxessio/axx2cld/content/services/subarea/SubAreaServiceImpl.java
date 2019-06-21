@@ -35,9 +35,9 @@ public class SubAreaServiceImpl implements SubAreaService {
 	 * Methode um SubAreas über eine Area zu suchen;
 	 */
 	@Override
-	public List<SubArea> readByArea(String area) {
+	public Optional<SubArea> readByArea(String area) {
 
-		return subAreaRepository.findByArea(area);
+		return subAreaRepository.findByAreaId(area);
 	}
 
 	/*
@@ -47,7 +47,7 @@ public class SubAreaServiceImpl implements SubAreaService {
 	@Override
 	public SubArea create(SubArea subarea) {
 
-		Optional<Area> area = areaRepository.findByName(subarea.getArea());
+		Optional<Area> area = areaRepository.findByName(subarea.getAreaId());
 		if (area.isPresent()) {
 			return subAreaRepository.save(subarea);
 		}
@@ -60,7 +60,7 @@ public class SubAreaServiceImpl implements SubAreaService {
 	 */
 	public SubArea update(SubArea subarea) {
 
-		Optional<Area> area = areaRepository.findByName(subarea.getArea());
+		Optional<Area> area = areaRepository.findByName(subarea.getAreaId());
 		if (area.isPresent()) {
 			return subAreaRepository.save(subarea);
 		}
@@ -73,7 +73,7 @@ public class SubAreaServiceImpl implements SubAreaService {
 	 * Delete Methode über ID. Nur moeglich, wenn vorhanden;
 	 */
 	@Override
-	public Boolean delete(Integer id) {
+	public Boolean delete(String id) {
 		try {
 			subAreaRepository.deleteById(id);
 			return true;

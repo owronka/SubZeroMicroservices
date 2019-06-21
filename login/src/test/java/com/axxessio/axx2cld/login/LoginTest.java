@@ -46,7 +46,7 @@ public class LoginTest {
 		
 		Account account = new Account();
 		account.setName("Test");
-		account.setPasswortdHash("#jjd");
+		account.setPasswordHash("ksf");
 		account.setPersonId(2);
 		account.setSalt("xyz");
 		
@@ -59,7 +59,7 @@ public class LoginTest {
 		Login  foundLogin = this.loginRepo.findByAccount(savedAccount).get();
 		
 		assertEquals(account.getSalt(), foundLogin.getSalt());
-		assertEquals(account.getPasswortdHash(), foundLogin.getPasswordHash());
+		assertEquals(account.getPasswordHash(), foundLogin.getPasswordHash());
 		assertEquals(account.getName(), foundLogin.getAccountName());
 		
 	}

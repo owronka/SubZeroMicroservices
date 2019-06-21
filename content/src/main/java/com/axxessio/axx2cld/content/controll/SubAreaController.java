@@ -34,9 +34,9 @@ public class SubAreaController {
 	}
 
 	@GetMapping("/area/{name}")
-	public ResponseEntity<List<SubArea>> readByArea(@PathVariable(name = "name") String name) {
+	public ResponseEntity<SubArea> readByArea(@PathVariable(name = "name") String name) {
 
-		return new ResponseEntity<List<SubArea>>(subareaService.readByArea(name), HttpStatus.OK);
+		return new ResponseEntity<SubArea>(subareaService.readByArea(name).get(), HttpStatus.OK);
 
 	}
 
@@ -60,7 +60,7 @@ public class SubAreaController {
 	}
 
 	@DeleteMapping(params = "id")
-	public ResponseEntity<Boolean> delete(@RequestParam(required = true, value = "id") Integer id) {
+	public ResponseEntity<Boolean> delete(@RequestParam(required = true, value = "id") String id) {
 
 		return new ResponseEntity<Boolean>(subareaService.delete(id), HttpStatus.OK);
 
