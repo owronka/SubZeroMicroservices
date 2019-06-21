@@ -10,6 +10,6 @@ import com.axxessio.axx2cld.login.entities.Account;
 
 @Repository
 public interface AccountRepository extends CrudRepository<Account, Integer>{
-	Optional<Account> findByName(String name);
+	Account findByName(String name);
 
 }
