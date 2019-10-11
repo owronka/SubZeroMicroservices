@@ -1,3 +1,11 @@
+<<<<<<< HEAD
 
 eine Zeile sinnvollen Code eingetragen
 
+=======
+<<<<<<< HEAD
+1. Hallo Leute
+=======
+1. Zeile an sinnvollem Code
+>>>>>>> 3da71b5a661f24956bde90d3919d101a3aefb319
+>>>>>>> f3a5e3de7da30129da92ce0c1f678adc47950c02
