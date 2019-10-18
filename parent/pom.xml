@@ -20,7 +20,17 @@
   </properties>
 
   <dependencyManagement>
-    <dependencies>
+	<dependencies>
+  	  <dependency>
+	    <groupId>org.apache.derby</groupId>
+	    <artifactId>derby</artifactId>
+		<version>10.11.1.1</version>
+	  </dependency>
+	  <dependency>
+	    <groupId>org.apache.derby</groupId>
+	    <artifactId>derbyclient</artifactId>
+		<version>10.11.1.1</version>
+	  </dependency>
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-log4j</artifactId>
@@ -40,7 +50,12 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.1.1</version>
+          <version>3.1.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <version>3.0.5</version>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
