@@ -4,12 +4,12 @@
   version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
   <persistence-unit name="Login" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-              
+<!--              
     <class>com.axxessio.axx2cld.registration.service.pdo.Account</class>
     <class>com.axxessio.axx2cld.registration.service.pdo.Adresse</class>
     <class>com.axxessio.axx2cld.registration.service.pdo.Kontakt</class>
     <class>com.axxessio.axx2cld.registration.service.pdo.Person</class>
-    
+-->
     <properties>
     
       <!-- enable these properties while you want to use network derby db  --> 
