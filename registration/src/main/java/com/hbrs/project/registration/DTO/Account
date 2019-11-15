@@ -1,0 +1,36 @@
+public class AccountDTO {
+
+private integer AC_ID;
+private varchar PASSWORD;
+
+private String name;
+private String pwdHash;
+private String pwdSalt;
+
+public AccountDTO(){
+}
+
+public AccountDTO (String newName, String newPwdHash, String newPwdSalt){
+super();
+this.name = newName;
+this.pwdHash = newPwdHash;
+this.pwdSalt = newPwdSalt;
+}
+
+public integer getAC_ID(){
+return AC_ID;
+}
+
+public void setAC_ID( integer newAC_ID){
+this.AC_ID = newAC_ID;
+}
+
+public varchar getPASSWORD(){
+return PASSWORD;
+}
+
+public void setPASSWORD( varchar newPASSWORD){
+this.PASSWORD = newPASSWORD;
+}
+
+ 
