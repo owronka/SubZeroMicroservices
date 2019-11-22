@@ -1,4 +1,4 @@
-package com.axxessio.axx2cld.login;
+package com.hbrs.project.login;
  
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
