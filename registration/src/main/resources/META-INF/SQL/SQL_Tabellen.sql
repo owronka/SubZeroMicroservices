@@ -18,19 +18,19 @@ create table HBRS.Account
 	primary key (ac_id)
 );
 
-create table HBRS.Adress
+create table HBRS.Address
 (
-	adress_id integer,
+	address_id integer,
 	stadt varchar (20),
 	land varchar (20),
-	straße varchar (30),
+	strasse varchar (30),
 	hausnummer integer,
 	plz integer,
-	primary key (adress_id)
+	primary key (address_id)
 );
 
 alter table HBRS.Account 
 add constraint fk_ac_id foreign key (ac_id) references HBRS.Person (p_id);
 
-alter table HBRS.Adress 
-add constraint fk_a_id foreign key (adress_id) references HBRS.Person (p_id);
+alter table HBRS.Address 
+add constraint fk_a_id foreign key (address_id) references HBRS.Person (p_id);
