@@ -1,7 +1,7 @@
 public class AccountDTO {
 
-private integer AC_ID;
-private varchar PASSWORD;
+private long ac_id;
+private String password;
 
 private String name;
 private String pwdHash;
@@ -17,20 +17,20 @@ this.pwdHash = newPwdHash;
 this.pwdSalt = newPwdSalt;
 }
 
-public integer getAC_ID(){
-return AC_ID;
+public long getAC_ID(){
+return ac_id;
 }
 
-public void setAC_ID( integer newAC_ID){
-this.AC_ID = newAC_ID;
+public void setAC_ID( long newAC_ID){
+this.ac_id = newAC_ID;
 }
 
-public varchar getPASSWORD(){
-return PASSWORD;
+public String getPASSWORD(){
+return password;
 }
 
-public void setPASSWORD( varchar newPASSWORD){
-this.PASSWORD = newPASSWORD;
+public void setPASSWORD( String newPASSWORD){
+this.password = newPASSWORD;
 }
 
 public String getName(){
