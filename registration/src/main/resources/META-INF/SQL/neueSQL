@@ -1,10 +1,10 @@
+create schema hbrs;
 create table HBRS.Person
 ( 
 	p_id integer, 
 	anrede varchar (20),
 	vorname varchar (20), 
 	nachname varchar (30), 
-	firma varchar (30),
 	email varchar (40),
 	telefon integer,
 	primary key (p_id)
@@ -13,6 +13,7 @@ create table HBRS.Person
 create table HBRS.Account
 ( 
 	ac_id integer,
+	nickname varchar (30),
 	password varchar (30),
 	primary key (ac_id)
 );
@@ -34,5 +35,9 @@ add constraint fk_ac_id foreign key (ac_id) references HBRS.Person (p_id);
 alter table HBRS.Address 
 add constraint fk_a_id foreign key (address_id) references HBRS.Person (p_id);
 
-Insert into HBRS.ACCOUNT(ac_id,password )
-values(12,"1234Test");
+
+
+
+Insert into HBRS.PERSON
+values(1, 'Frau', 'Nithu', 'Indran', 'HBRS', 'test@test.de', 0123456789);
+

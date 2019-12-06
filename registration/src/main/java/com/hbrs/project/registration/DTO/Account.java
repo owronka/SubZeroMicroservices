@@ -1,4 +1,6 @@
-public class AccountDTO {
+package com.hbrs.project.registration.DTO;
+
+public class Account{
 
 private long ac_id;
 private String password;
@@ -7,10 +9,10 @@ private String name;
 private String pwdHash;
 private String pwdSalt;
 
-public AccountDTO(){
+public Account(){
 }
 
-public AccountDTO (String newName, String newPwdHash, String newPwdSalt){
+public Account (String newName, String newPwdHash, String newPwdSalt){
 super();
 this.name = newName;
 this.pwdHash = newPwdHash;

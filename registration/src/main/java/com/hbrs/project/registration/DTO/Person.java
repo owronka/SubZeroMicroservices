@@ -1,4 +1,6 @@
-public class PersonDTO{
+package com.hbrs.project.registration.DTO;
+
+public class Person{
 
 private long p_id;
 private String vorname;
@@ -8,7 +10,7 @@ private String firma;
 private String email;
 private long telefon;
 
-public PersonDTO( long newP_ID, String newAnrede, String newVorname, String newNachname, String newFirma, String newEmail, long newTelefon){
+public Person( long newP_ID, String newAnrede, String newVorname, String newNachname, String newFirma, String newEmail, long newTelefon){
 super();
 this.p_id = newP_ID;
 this.vorname = newVorname;
@@ -24,7 +26,7 @@ return p_id;
 }
 
 public long setP_ID ( long newP_ID){
-this.p_id = newP_ID;
+return this.p_id = newP_ID;
 }
 
 public String getVorname(){
@@ -32,7 +34,7 @@ return vorname;
 }
 
 public String setVorname (String newVorname){
-this.vorname = newVorname;
+return this.vorname = newVorname;
 }
 
 public String getNachname(){
@@ -40,7 +42,7 @@ return nachname;
 }
 
 public String setNachname(String newNachname){
-this.nachname = newNachname;
+return this.nachname = newNachname;
 }
 
 public String getAnrede(){
@@ -48,7 +50,7 @@ return anrede;
 }
 
 public String setAnrede ( String newAnrede){
-this.anrede = newAnrede;
+return this.anrede = newAnrede;
 }
 
 public String getFirma(){
@@ -56,7 +58,7 @@ return firma;
 }
 
 public String setFirma ( String newFirma){
-this.firma = newFirma;
+return this.firma = newFirma;
 }
 
 public String getEmail(){
@@ -64,7 +66,7 @@ return email;
 }
 
 public String setEmail(String newEmail){
-this.email= newEmail;
+return this.email= newEmail;
 }
 
 public long getTelefon(){
@@ -72,7 +74,7 @@ return telefon;
 }
 
 public long setTelefon(long newTelefon){
-this.telefon = newTelefon;
+return this.telefon = newTelefon;
 }
 }
 

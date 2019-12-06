@@ -1,15 +1,17 @@
+package src.main.java.com.hbrs.project.login.DTO;
 
-public class AccountDTO {
+
+public class Account {
 
     
-    private Integer id;     
-    private Integer personId;
+    private int id;     
+    private int personId;
     private String name;
     private String passwordHash;
     private String salt;  
     private Login login;
      
-    public AccountDTO() {  
+    public Account() {  
     }
      
     public Login getLogin() {
@@ -20,17 +22,17 @@ public class AccountDTO {
         this.login = login;
     }
      
-    public Integer getId() {
+    public int getId() {
         return id;
     }
      
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
-    public Integer getPersonId() {
+    public int getPersonId() {
         return personId;
     }
-    public void setPersonId(Integer personId) {
+    public void setPersonId(int personId) {
         this.personId = personId;
     }
     public String getName() {
@@ -43,7 +45,7 @@ public class AccountDTO {
         return passwordHash;
     }
     public void setPasswordHash(String password) {
-        this.passwordHash = ;
+        this.passwordHash = passwordHash;
     }
     public String getSalt() {
         return salt;
