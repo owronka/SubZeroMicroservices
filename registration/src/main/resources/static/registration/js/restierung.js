@@ -49,6 +49,28 @@ function registrierung (){
 	strassel = document.getElementById['strasse-label'];
 	hnummerl = document.getElementById['hausnummer-label'];
 	
+	
+	anredelistel.innerHTML = 'Anrede';
+	anredelistel.style.color = '#0004ff';
+	vnamel.innerHTML = 'Vorname';
+	vnamel.style.color = '#0004ff';
+	namel.innerHTML = 'Nachname';
+	namel.style.color = '#0004ff';
+	emaill.innerHTML = 'E-Mail';
+	emaill.style.color = '#0004ff';
+	benutzerl.innerHTML = 'Benutzer';
+	benutzerl.style.color = '#0004ff';
+	passl.innerHTML = 'Passwort';
+	passl.style.color = '#0004ff';
+	pwdhll.innerHTML = 'Passwort (Wiederholung)';
+	pwdhll.style.color = '#0004ff';
+	stadtl.innerHTML = 'Stadt';
+	stadtl.style.color = '##0004ff';
+	strassel.innerHTML = 'Strasse';
+	strassel.style.color = '#0004ff';
+	hnummerl.innerHTML = 'Hausnummer';
+	hnummerl.style.color = '#000000';
+	
 
 function passt(){
 
