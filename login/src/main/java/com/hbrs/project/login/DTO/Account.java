@@ -1,5 +1,5 @@
 
-public class AccountDTO {
+public class Account {
 
     
     private Integer id;     
@@ -9,7 +9,7 @@ public class AccountDTO {
     private String salt;  
     private Login login;
      
-    public AccountDTO() {  
+    public Account() {  
     }
      
     public Login getLogin() {
@@ -43,7 +43,7 @@ public class AccountDTO {
         return passwordHash;
     }
     public void setPasswordHash(String password) {
-        this.passwordHash = ;
+        //this.passwordHash = ;
     }
     public String getSalt() {
         return salt;

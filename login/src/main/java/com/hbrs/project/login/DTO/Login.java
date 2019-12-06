@@ -11,6 +11,12 @@ public class Login {
         public Login() {
               
          }
+        
+        public Login(Integer id, String passwordHash, Account account ) {
+        	this.account = account;
+        	this.id = id;
+        	this.passwordHash = passwordHash;
+        }
  
  
         public String getAccountName() {
