@@ -122,12 +122,12 @@ public void closeConnection() {
 				 ex.printStackTrace();
 				 }
 			
-		 String SQL = "SELECT * FROM HBRS.ACCOUNT";
+		 String SQL = "SELECT * FROM HBRS.PERSON";
 		 Statement stmt = conn.createStatement();
 		 ResultSet rs = stmt.executeQuery(SQL);
 		 
 		 while(rs.next()){
-		  System.out.println(rs.getString("ID") + " " + (rs.getString("name")));
+		  System.out.println(rs.getString("nachname") + " " + (rs.getString("vorname")));
 		  }
 		  
 		

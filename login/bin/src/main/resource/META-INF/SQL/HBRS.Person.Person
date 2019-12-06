@@ -1,0 +1,9 @@
+create table HBRS.Person
+(
+	ID integer, 
+	P_ID integer, 
+	NAME varchar (20), 
+	PASSWORD varchar (30), 
+	SALT varchar (40),
+	primary key (ID)
+) 
