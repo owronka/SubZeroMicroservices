@@ -6,15 +6,15 @@ public class Registration{
 	private String name;
 	private String email;
 	private String benutzer;
-	private long pw;
-	private long pwhl;
+	private String pw;
+	private String pwhl;
 	private String plz;
 	private String stadt;
 	private String strasse;
 	private String hnummer;
 	
 	public Registration(String anrede, String vorname, String name, String email,
-		String benutzer, long pw, long pwhl, String plz, String stadt,  String strasse, String hnummer){
+		String benutzer, String pw, String pwhl, String plz, String stadt,  String strasse, String hnummer){
 		this.anrede = anrede;
 		this.vorname = vorname;
 		this.name = name;
@@ -57,16 +57,16 @@ public class Registration{
 	public void setBenutzer(String benutzer) {
 		this.benutzer = benutzer;
 	}
-	public long getPw() {
+	public String getPw() {
 		return pw;
 	}
-	public void setPw(long pw) {
+	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	public long getPwhl() {
+	public String getPwhl() {
 		return pwhl;
 	}
-	public void setPwhl(long pwhl) {
+	public void setPwhl(String pwhl) {
 		this.pwhl = pwhl;
 	}
 	public String getPlz() {

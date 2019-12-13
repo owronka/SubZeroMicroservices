@@ -39,5 +39,9 @@ add constraint fk_a_id foreign key (address_id) references HBRS.Person (p_id);
 
 
 Insert into HBRS.PERSON
-values(1, 'Frau', 'Nithu', 'Indran', 'HBRS', 'test@test.de', 0123456789);
+values(1, 'Frau', 'Nithu', 'Indran','test@test.de', 0123456789);
+Insert into HBRS.PERSON
+values(2, 'Frau', 'Indu', 'Indran','test2@test.de', 1234567890);
+Insert into HBRS.ACCOUNT
+values(2, 'nindra2s', '1234NI');
 

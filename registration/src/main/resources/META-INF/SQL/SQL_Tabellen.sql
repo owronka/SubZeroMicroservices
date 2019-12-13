@@ -1,7 +1,6 @@
-
 create table HBRS.Person
 ( 
-	p_id integer, 
+	p_id integer AUTO_INCREMENT, 
 	anrede varchar (20),
 	vorname varchar (20), 
 	nachname varchar (30), 
@@ -13,14 +12,14 @@ create table HBRS.Person
 
 create table HBRS.Account
 ( 
-	ac_id integer,
+	ac_id integer AUTO_INCREMENT,
 	password varchar (30),
 	primary key (ac_id)
 );
 
 create table HBRS.Address
 (
-	address_id integer,
+	address_id integer AUTO_INCREMENT,
 	stadt varchar (20),
 	land varchar (20),
 	strasse varchar (30),
