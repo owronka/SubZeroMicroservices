@@ -2,21 +2,26 @@
 <html>
 	<head>
 		<title> Registierung </title>
-		<script src="SubZeroMicroservices/registration/src/main/resources/registrierung.js" type="text/javascript"></script>
-		<script src="SubZeroMicroservices/registration/src/main/resources/sha.js" type="text/javascript"></script>
+		<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+		<script src="..\static\registration\js\registrierung.js" type="text/javascript"></script>
+		<script src="..\static\registration\js\sha.js" type="text/javascript"></script>
+		<link href="..\static\registration\CSS\style.css" rel="stylesheet">
 	</head>
 	
 	<body>
 			<div data-role="page" id="register">
 			<form id ="register-form">
-			</form></div>
 		<div>
-		<label for="anredelistel" id="anredelistel"> Anrede:</label>
+		<label style="" for="anredelistel" id="anredelistel"> Anrede:</label>
 		<br/>
 			<select id ="anredelistet">
-				<option selected="selected" value ="mann">Herr</option>
+				<option selected="selected" value ="leer"> </option>
+				<option value ="mann">Herr</option>
 				<option value ="frau">Frau</option>
-				<option value ="firma">Firma</option>	
+				<option value ="firma">Firma</option>
 			</select>			
 		<br/>
 		<label for="vnamel" id="vnamel">Vorname:</label>
@@ -26,7 +31,7 @@
 		<br/>
 		<label for="namel" id="namel">Name:</label>
 		<br/>
-		<input type="text" id="vnamet" size="20" maxlength="40"/>
+		<input type="text" id="namet" size="20" maxlength="40"/>
 		<br/>
 		<br/>
 		<label for="emaill" id="emaill">Email:</label>
@@ -63,7 +68,8 @@
 		<br/>
 		<input type="text" id="hnummert" size="10" maxlength="10"/>
 		<br/>
-		 <button type="button" id="regibutton">Registierung</button>
+		 <input type="submit" value="Registieren" id="regibutton"></input>
 		</div>
+	</form></div>
 	</body>
 </html>	
