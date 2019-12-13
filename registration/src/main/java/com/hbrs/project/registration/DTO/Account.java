@@ -1,36 +1,38 @@
-public class AccountDTO {
+package com.hbrs.project.registration.DTO;
 
-private integer AC_ID;
-private varchar PASSWORD;
+public class Account{
+
+private long ac_id;
+private String password;
 
 private String name;
 private String pwdHash;
 private String pwdSalt;
 
-public AccountDTO(){
+public Account(){
 }
 
-public AccountDTO (String newName, String newPwdHash, String newPwdSalt){
+public Account (String newName, String newPwdHash, String newPwdSalt){
 super();
 this.name = newName;
 this.pwdHash = newPwdHash;
 this.pwdSalt = newPwdSalt;
 }
 
-public integer getAC_ID(){
-return AC_ID;
+public long getAC_ID(){
+return ac_id;
 }
 
-public void setAC_ID( integer newAC_ID){
-this.AC_ID = newAC_ID;
+public void setAC_ID( long newAC_ID){
+this.ac_id = newAC_ID;
 }
 
-public varchar getPASSWORD(){
-return PASSWORD;
+public String getPASSWORD(){
+return password;
 }
 
-public void setPASSWORD( varchar newPASSWORD){
-this.PASSWORD = newPASSWORD;
+public void setPASSWORD( String newPASSWORD){
+this.password = newPASSWORD;
 }
 
 public String getName(){
