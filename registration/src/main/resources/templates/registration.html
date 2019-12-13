@@ -2,19 +2,22 @@
 <html>
 	<head>
 		<title> Registierung </title>
-		<script src ="regisitrierung.js"></script>
+		<script src="SubZeroMicroservices/registration/src/main/resources/registrierung.js" type="text/javascript"></script>
+		<script src="SubZeroMicroservices/registration/src/main/resources/sha.js" type="text/javascript"></script>
 	</head>
 	
 	<body>
+			<div data-role="page" id="register">
+			<form id ="register-form">
+			</form></div>
 		<div>
 		<label for="anredelistel" id="anredelistel"> Anrede:</label>
 		<br/>
 			<select id ="anredelistet">
 				<option selected="selected" value ="mann">Herr</option>
 				<option value ="frau">Frau</option>
-				<option value ="firma">Firma</option>
+				<option value ="firma">Firma</option>	
 			</select>			
-		
 		<br/>
 		<label for="vnamel" id="vnamel">Vorname:</label>
 		<br/>
@@ -60,7 +63,7 @@
 		<br/>
 		<input type="text" id="hnummert" size="10" maxlength="10"/>
 		<br/>
-		<button type="submit" name="zustimmen" value="1"> Registieren </button>
+		 <button type="button" id="regibutton">Registierung</button>
 		</div>
 	</body>
 </html>	

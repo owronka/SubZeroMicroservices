@@ -1,3 +1,5 @@
+package com.hbrs.project.login.DTO;
+
 
 public class Account {
 
@@ -10,6 +12,16 @@ public class Account {
     private Login login;
      
     public Account() {  
+    }
+
+   public Account(Integer id, Integer personId, String name, String passwordHash, String salt,  Login login){
+
+	this.id = id;
+        this.name = name;
+        this.passwordHash = passwordHash;
+        this.salt = salt;
+        this.login = login;
+
     }
      
     public Login getLogin() {
@@ -52,6 +64,5 @@ public class Account {
         this.salt = salt;
     }
      
-     
- 
+    
 }
