@@ -13,7 +13,7 @@ public class ServiceController {
 	private static final String template = "Hello, %s!";
 	private final AtomicLong counter = new AtomicLong();
 
-	@GetMapping("/service")
+	@GetMapping("/registration")
 	public Service service(@RequestParam(value = "name", defaultValue = "World") String name) {
 		return new Service(counter.incrementAndGet(), String.format(template, name));
 	}
