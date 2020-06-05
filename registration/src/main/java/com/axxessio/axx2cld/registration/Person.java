@@ -14,7 +14,7 @@ public class Person {
 	private String name;
 	private String email;
 	private String password;
-	private int id;
+	private Integer id;
 	
 	/*public User(String vorname, String name, String email, String password, int id) {
 		this.setVorname(vorname);
@@ -61,7 +61,7 @@ public class Person {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	    
