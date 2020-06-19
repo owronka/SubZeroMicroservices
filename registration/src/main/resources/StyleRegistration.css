@@ -1,0 +1,61 @@
+tml {
+  height: 100%;
+}
+ 
+  body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/steel-and-glass-business-background-acilo.jpg");
+  background-color: #3a3a3a;
+  background-size: 100% auto;
+    background-position: center;
+   
+ 
+}
+#main-holder {
+  width: 30%;
+  height: 70%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px 2px black;
+}
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+     
+     button {
+        background-color: #4287f5;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+   
+    button:hover {
+        opacity: 0.8;
+    }
+   
+    .container {
+        padding: 80px;
+    }
+     
+     
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
