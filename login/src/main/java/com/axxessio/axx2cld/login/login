@@ -1,0 +1,4 @@
+create table login(
+	varchar username(30);
+	varchar password(30);
+)
