@@ -18,19 +18,25 @@ public class MainController {
   private PersonRepository userRepository;
   @Autowired
   private AdresseRepository adresseRepository;
+  @Autowired
+  private KontaktRepository kontaktRepository;
+  @Autowired
+  private AccountRepository accountRepository;
+  
 
   @PostMapping(path="/person") // Map ONLY POST Requests
-  public @ResponseBody String addNewUser (@RequestParam String name,@RequestParam String vorname,
+  public @ResponseBody String addNewUser (@RequestParam String anrede, @RequestParam String nachname,@RequestParam String vorname,
 		  @RequestParam String email, @RequestParam String password, @RequestParam String str, 
-		  @RequestParam int hausnummer, @RequestParam int plz, @RequestParam String ort) {
+		  @RequestParam int hausnummer, @RequestParam int plz, @RequestParam String ort,  
+		  @RequestParam String name,  @RequestParam Integer telefon) {
     // @ResponseBody means the returned String is the response, not a view name
     // @RequestParam means it is a parameter from the GET or POST request
 
     Person n = new Person();
+    n.setAnrede(anrede);
     n.setVorname(vorname);
-    n.setName(name);
-    n.setEmail(email);
-    n.setPassword(password);
+    n.setNachname(nachname);
+   
    
     Adresse a = new Adresse();
     a.setStr(str);
@@ -38,8 +44,18 @@ public class MainController {
     a.setPlz(plz);
     a.setOrt(ort);
     
+    Kontakt k = new Kontakt();
+    k.setEmail(email);
+    k.setTelefon(telefon);
+    
+    Account acc = new Account();
+    acc.setName(name);
+    acc.setPassword(password);
+    
     userRepository.save(n);
     adresseRepository.save(a);
+    kontaktRepository.save(k);
+    accountRepository.save(acc);
     return "Saved";
     
   }
@@ -54,5 +70,16 @@ public class MainController {
     // This returns a JSON or XML with the users
     return adresseRepository.findAll();
   }
+  @GetMapping(path="/kontakt")
+  public @ResponseBody Iterable<Kontakt> getAllKontakt() {
+    // This returns a JSON or XML with the users
+    return kontaktRepository.findAll();
+  }
+  @GetMapping(path="/account")
+  public @ResponseBody Iterable<Account> getAllAccount() {
+    // This returns a JSON or XML with the users
+    return accountRepository.findAll();
+  }
+  
   
 }

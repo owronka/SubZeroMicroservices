@@ -11,11 +11,10 @@ public class Person {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
+	private String Anrede;
 	private String vorname;
-	private String name;
-	private String email;
-	private String password;
-	
+	private String nachname;
+
 	
 	/*public User(String vorname, String name, String email, String password, int id) {
 		this.setVorname(vorname);
@@ -25,7 +24,15 @@ public class Person {
 	    this.setId(id);
 	
 	}*/
+	
+	public String getAnrede() {
+		return Anrede;
+	}
 
+	public void setAnrede(String anrede) {
+		Anrede = anrede;
+	}
+	  
 	public String getVorname() {
 		return vorname;
 	}
@@ -34,28 +41,12 @@ public class Person {
 		this.vorname = vorname;
 	}
 
-	public String getName() {
-		return name;
+	public String getNachname() {
+		return nachname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setNachname(String nachname) {
+		this.nachname = nachname;
 	}
 
 	public Integer getId() {
@@ -65,6 +56,5 @@ public class Person {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	    
 		
 }
