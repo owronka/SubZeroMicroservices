@@ -1,18 +1,25 @@
 package com.axxessio.axx2cld.login;
 
-public class User {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity 
+public class Person{
+	 @Id
+	  @GeneratedValue(strategy=GenerationType.AUTO)
 	private final long id;
 	private String name;
 	private String password;
 	private String email;
 		
-	public User() {
+	public Person() {
 		this.id = 0;
 	}
 	
 	
-	public User(long id, String username, String password) {
+	public Person(long id, String username, String password) {
 		this.id = id;
 		this.name = name;
 	    this.password = password;	       
